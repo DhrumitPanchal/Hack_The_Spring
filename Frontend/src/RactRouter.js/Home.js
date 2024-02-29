@@ -1,38 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { GiSkills } from "react-icons/gi";
 import { FaBriefcase } from "react-icons/fa";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import Footer from "./Footer";
-import axios from "axios";
 
 function Home() {
   const [firstData, setFirstData] = useState(null);
-  const token =
-    "6KPnAjasx2BzGyQSF2Lnfw51zqpeNjBy5lHN66E8Fgw5s8dxWsDmpr5DQQAOP7uBKhwOeYrBljpGnJKrpaUWEQ6h9JmFScSEHjiYZQ1NZXVIr+OTK6TXB2NWImPfVdzpT5AkvvgEJrRJAjkfgs2eMNt7M6f3lP5mjbPEFZGh1IoG85t4pN6b3Vt88TjwMuK/e1VbhgVy6BJI7IK6tPmHum3FTWeaBl9cVC1qNYVz5jXBM870M28vsh4IInLnInBjIPPx2DXSdYKgjM0ze95AA38eBUpLap/cpP/GdyK2fPtpAqKtxMkOD/vgDrb4Zrhz4GMfq/IIP1IOQ+K0kA+5mUSum/27V9kkVzP8yNS0znewATRATwRtY/mVyN3jdKuqfnx8zAl9TCXaoldfnS/vtK6ojbJihrSVIwco1514a0NJYcnEva0X/WP3y85XbwlZb13lPgoUPClVfaUpn4nkX9U8m1P19hA/XfOtFsu9ztoitfiyOoVH1BhnmUdivKVto8rQgcOeAjOjzQZNe9rqNQ=="; // Replace with your actual Bearer token
-  const getData = async () => {
-    try {
-      const headers = {
-        Authorization: `Bearer ${token}`, // Set the Bearer token in the Authorization header
-      };
-      const data = await axios.get(
-        "https://cloud.syncloop.com/tenant/Yashsoni/homescreendata",
-        { headers }
-      );
-
-      setFirstData(data.data?.message);
-      console.log({ data });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <>
-      <section className="h-full w-full text-black/70">
+      <section className="w-full h-full text-black/70">
         <div
           className={
             "relative overflow-hidden bg-slate-100 h-screen max-sm:h-fit max-sm:p-[2rem] max-sm:pt-[8rem] max-sm:gap-[6rem] w-full pt-[4rem] px-[4rem] flex max-sm:flex-col items-center justify-between text-white"
@@ -40,7 +18,7 @@ function Home() {
         >
           <div className="absolute z-[2] -left-[10rem] -top-[4rem] -rotate-[25deg] h-screen w-[60rem] bg-ButtonColor"></div>
           {/* <div className="absolute z-[1] top-[2rem] left-0 w-full ">
-            <img src={"/home_img.png"} className="h-full w-full" />
+            <img src={"/home_img.png"} className="w-full h-full" />
           </div> */}
           <div className="relative z-20">
             <h3 className="mb-[.4rem] text-[2.6rem] font-bold">
@@ -59,7 +37,7 @@ function Home() {
             </NavLink>
           </div>
           <div className="h-[34rem] max-sm:h-[30rem]">
-            <img src="/homepage1.png" className="h-full w-full" />
+            <img src="/homepage1.png" className="w-full h-full" />
           </div>
         </div>
 
@@ -97,7 +75,7 @@ function Home() {
         {/* ------------------ */}
 
         <div className="mt-[4rem] p-[6rem] max-sm:p-[3rem]">
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col items-center justify-center">
             <h2 className="text-[1.2rem] font-semibold text-primaryColor ">
               Ongoing Campaigns
             </h2>
