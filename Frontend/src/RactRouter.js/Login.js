@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useGlobal } from "./Context";
 import Footer from "./Footer";
 import axios from "axios";
 
@@ -7,7 +6,7 @@ import axios from "axios";
 
 //   return (
 //     <section className="flex justify-center w-full h-max">
-//       <div className=" flex max-sm:flex-col h-screen w-full">
+//       <div className="flex w-full h-screen max-sm:flex-col">
 //         <div className="flex  pt-[6rem] h-full">
 //           {/* <img src="./Mobilelogin-rafiki.png" alt="" /> */}
 //         </div>
@@ -21,20 +20,20 @@ import axios from "axios";
 //                 <h1 className="font-semibold">Username</h1>
 //                 <input
 //                   type="text"
-//                   className="pl-3  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md"
+//                   className="p-2 pl-3 border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
 //                 />
 //               </div>
 //               <div className="flex flex-col gap-2 text-primaryColor">
 //                 <h1 className="font-semibold">Username</h1>
 //                 <input
 //                   type="text"
-//                   className="pl-3  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md"
+//                   className="p-2 pl-3 border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
 //                 />
 //               </div>
 
 //               <button
 //                 onClick={() => setIsLogin(!isLogin)}
-//                 className="bg-gradient-to-r from-primaryColor/70  to-primaryColor p-2 rounded-md text-white hover:bg-primaryColor/90"
+//                 className="p-2 text-white rounded-md bg-gradient-to-r from-primaryColor/70 to-primaryColor hover:bg-primaryColor/90"
 //               >
 //                 Submit
 //               </button>
@@ -43,7 +42,7 @@ import axios from "axios";
 //                 {" "}
 //                 Don't haven account ?{" "}
 //                 <a
-//                   className="cursor-pointer font-semibold"
+//                   className="font-semibold cursor-pointer"
 //                   onClick={() => setIsLogin(!isLogin)}
 //                 >
 //                   Signup
@@ -63,7 +62,7 @@ import axios from "axios";
 //                   name="name"
 //                   value={loginData.name}
 //                   type="text"
-//                   className="pl-3 bg-transparent  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md"
+//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
 //                 />
 //               </div>
 //               <div className="flex flex-col gap-2 text-primaryColor">
@@ -74,7 +73,7 @@ import axios from "axios";
 //                   onChange={heandalinput}
 //                   name="Email"
 //                   value={loginData.Email}
-//                   className="pl-3 bg-transparent  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md"
+//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
 //                 />
 //               </div>
 //               <div className="flex flex-col gap-2 text-primaryColor">
@@ -85,7 +84,7 @@ import axios from "axios";
 //                   name="password"
 //                   value={loginData.password}
 //                   type="text"
-//                   className="pl-3 bg-transparent  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md"
+//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
 //                 />
 //               </div>
 //               <div className="flex flex-col gap-2 text-primaryColor">
@@ -96,7 +95,7 @@ import axios from "axios";
 //                   name="Confpassword"
 //                   value={loginData.Confpassword}
 //                   type="text"
-//                   className="pl-3 bg-transparent  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md"
+//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
 //                 />
 //               </div>
 //               <button
@@ -104,7 +103,7 @@ import axios from "axios";
 //                   setDataToLocalSt();
 //                 }}
 //                 type="submit"
-//                 className="bg-gradient-to-r from-primaryColor/70  to-primaryColor p-2 rounded-md text-white hover:bg-primaryColor/90"
+//                 className="p-2 text-white rounded-md bg-gradient-to-r from-primaryColor/70 to-primaryColor hover:bg-primaryColor/90"
 //               >
 //                 Submit
 //               </button>
@@ -116,7 +115,7 @@ import axios from "axios";
 //                   onClick={() => {
 //                     setIsLogin(!isLogin);
 //                   }}
-//                   className="cursor-pointer font-semibold"
+//                   className="font-semibold cursor-pointer"
 //                 >
 //                   Login
 //                 </a>
@@ -124,7 +123,7 @@ import axios from "axios";
 //             </div>
 //           )}
 //         </div>
-//         <div className="max-sm:hidden flex  h-full">
+//         <div className="flex h-full max-sm:hidden">
 //           <img src="./Mobilelogin-rafiki.png" alt="" />
 //         </div>
 //       </div>
@@ -136,7 +135,6 @@ import axios from "axios";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
-  const UseGlobal = useGlobal();
   const [loginData, setLoginData] = useState({
     userName: "",
     email: "",
@@ -212,7 +210,6 @@ function Login() {
 
   const setDataToLocalSt = () => {
     localStorage.setItem("loginData", JSON.stringify(loginData));
-    UseGlobal.setIsLoggedIn(true);
   };
   return (
     <>
@@ -481,7 +478,7 @@ function Login() {
                         <span className="mb-[.6rem] text-center text-TextColor2">
                           Don't haven account ?
                           <a
-                            className="cursor-pointer font-semibold"
+                            className="font-semibold cursor-pointer"
                             onClick={() => setIsLogin(!isLogin)}
                           >
                             Sign up
@@ -595,7 +592,7 @@ function Login() {
                             onClick={() => {
                               setIsLogin(!isLogin);
                             }}
-                            className="cursor-pointer font-semibold"
+                            className="font-semibold cursor-pointer"
                           >
                             Login
                           </a>

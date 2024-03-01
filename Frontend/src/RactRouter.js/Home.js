@@ -5,6 +5,7 @@ import { FaBriefcase } from "react-icons/fa";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import Footer from "./Footer";
 
+
 function Home() {
   const [firstData, setFirstData] = useState(null);
 

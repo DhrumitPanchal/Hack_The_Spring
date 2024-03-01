@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { FaMessage, FaPen } from "react-icons/fa6";
+import React, { useState, useContext } from "react";
+// import { FaMessage, FaPen } from "react-icons/fa6";
+import { FaRegUser } from "react-icons/fa";
 
+import { Context } from "./Context";
 function ProfilePage() {
   const [proEditable, setProEditable] = useState(false);
   const [userWorker, setUserWorker] = useState(false);
   const [data, setData] = useState({});
-  useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("loginData")));
-    // data.Catagory == "client" && setUserWorker(false)
-  }, []);
 
-  const heandalinput = (event) => {
+  const { user, setUser } = useContext(Context);
+
+  const handelInput = (event) => {
     if (proEditable) {
       const name = event.target.name;
       const value = event.target.value;
-      setData((prev) => {
-        return { ...prev, [name]: value };
-      });
+      setUser({ ...user, [name]: value });
     }
-  };
-
-  const setEditedData = () => {
-    localStorage.setItem("loginData", JSON.stringify(data));
   };
 
   return (
@@ -56,11 +50,11 @@ function ProfilePage() {
             <div className="m-[1rem] p-[1rem] rounded-[.4rem] bg-ButtonColor/30">
               <input
                 required
-                onChange={(e) => heandalinput(e)}
-                name="phone"
-                value={data?.userName}
+                onChange={(e) => handelInput(e)}
+                name="name"
+                value={user.name}
                 placeholder="userName"
-                className="text-xl font-bold leading-8 text-gray-900 bg-transparent "
+                className="text-xl truncate ... w-[14rem] font-bold leading-8 text-gray-900 bg-transparent "
                 disabled
               />
 
@@ -92,23 +86,12 @@ function ProfilePage() {
           <div className="w-full h-64 mx-2 md:w-9/12 max-sm:h-fit">
             <div className="relative max-sm:mt-[2rem] w-full bg-white pb-[1.2rem] border-[2px] overflow-hidden border-ButtonColor  rounded-[8px]  ">
               <div className="px-[2.6rem] py-[1.4rem] flex items-center space-x-2 font-semibold leading-8 text-gray-900  bg-ButtonColor">
-                <span className="">
-                  <svg
-                    className="h-[2rem]"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>
+                <div className=" h-[2.2rem] w-[2.2rem] flex justify-center items-center rounded-full border-[.2rem] border-white">
+                  <FaRegUser className="text-[1.1rem] text-white" />
+                </div>
+                <span className="tracking-wide text-[2rem] text-white">
+                  About
                 </span>
-                <span className="tracking-wide text-[2rem]">About</span>
               </div>
               <div className="text-gray-700 mt-[1rem] pr-[6rem]  px-[2rem] pb-[2rem] ">
                 <div className="grid text-sm md:grid-cols-1">
@@ -117,19 +100,19 @@ function ProfilePage() {
                     {proEditable ? (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="userName"
+                        onChange={(e) => handelInput(e)}
+                        name="name"
                         placeholder="Name"
-                        value={data?.userName}
+                        value={user?.name}
                         className="px-4 py-2 -ml-[12rem] max-sm:ml-0 bg-transparent border-b-2 border-ButtonColor/50 outline-none focus:border-ButtonColor duration-300"
                       />
                     ) : (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="userName"
+                        onChange={(e) => handelInput(e)}
+                        name="name"
                         placeholder="Name"
-                        value={data?.userName}
+                        value={user?.name}
                         className="px-4 py-2 -ml-[12rem] max-sm:-ml-0 bg-transparent border-b-2 outline-none focus:border-ButtonColor duration-300"
                         disabled
                       />
@@ -143,21 +126,21 @@ function ProfilePage() {
                         <input
                           type="text"
                           required
-                          onChange={(e) => heandalinput(e)}
-                          name="Email"
+                          onChange={(e) => handelInput(e)}
+                          name="email"
                           className="w-full px-4 py-2 duration-300 bg-transparent border-b-2 outline-none max-sm:ml-0 border-ButtonColor/50 focus:border-ButtonColor"
                           placeholder="Email"
-                          value={data?.Email}
+                          value={user?.email}
                         />
                       ) : (
                         <input
                           type="text"
                           required
-                          onChange={(e) => heandalinput(e)}
-                          name="Email"
+                          onChange={(e) => handelInput(e)}
+                          name="email"
                           className="w-full px-4 py-2 duration-300 bg-transparent border-b-2 outline-none max-sm:ml-0 focus:border-ButtonColor"
                           placeholder="Email"
-                          value={data?.Email}
+                          value={user?.email}
                           disabled
                         />
                       )}
@@ -169,30 +152,45 @@ function ProfilePage() {
 
                     {!proEditable ? (
                       <div className="px-4 py-2 -ml-[12rem] max-sm:ml-0 flex gap-[2rem] justify-start border-b-2 border-slate-200">
-                        <div className="">Male</div>
+                        <div className="">{user?.gender}</div>
                       </div>
                     ) : (
                       <div className="px-4 py-2 -ml-[12rem] max-sm:ml-0 flex gap-[2rem] justify-start">
                         <div className="flex gap-[.8rem] items-center capitalize">
-                          <input
-                            type="radio"
-                            name="Gender"
-                            id="male"
-                            onClick={(e) => heandalinput(e)}
-                            value="male"
-                            className="scale-[1.6]"
-                          />
+                          {user.gender === "male" ? (
+                            <input
+                              type="radio"
+                              name="gender"
+                              id="male"
+                              onClick={(e) => handelInput(e)}
+                              value="male"
+                              checked
+                              className="scale-[1.6]"
+                            />
+                          ) : (
+                            <input
+                              type="radio"
+                              name="gender"
+                              id="male"
+                              onClick={(e) => handelInput(e)}
+                              value="male"
+                              checked
+                              className="scale-[1.6]"
+                            />
+                          )}
                           <label htmlFor="male">male</label>
                         </div>
                         <div className="flex gap-[.8rem] items-center capitalize">
-                          <input
-                            type="radio"
-                            name="Gender"
-                            id="female"
-                            onClick={(e) => heandalinput(e)}
-                            value="female"
-                            className="scale-[1.6]"
-                          />
+                          {
+                            <input
+                              type="radio"
+                              name="gender"
+                              id="female"
+                              onClick={(e) => handelInput(e)}
+                              value="female"
+                              className="scale-[1.6]"
+                            />
+                          }
                           <label htmlFor="female">female</label>
                         </div>
                       </div>
@@ -203,22 +201,22 @@ function ProfilePage() {
                     {proEditable ? (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="Contect"
-                        value={data?.Contect}
+                        onChange={(e) => handelInput(e)}
+                        name="contact"
+                        value={user?.contact}
                         type="text"
                         className="px-4 py-2 -ml-[12rem] border-b-2 max-sm:ml-0 border-ButtonColor/50 outline-none focus:border-ButtonColor transition-colors duration-300"
-                        placeholder="Add Contect number"
+                        placeholder="Add contact number"
                       />
                     ) : (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="Contect"
-                        value={data?.Contect}
+                        onChange={(e) => handelInput(e)}
+                        name="contact"
+                        value={user?.contact}
                         type="text"
                         className="px-4 py-2 -ml-[12rem] border-b-2 max-sm:ml-0 bg-transparent outline-none focus:border-ButtonColor transition-colors duration-300"
-                        placeholder="Add Contect number"
+                        placeholder="Add contact number"
                         disabled
                       />
                     )}
@@ -229,18 +227,18 @@ function ProfilePage() {
                     {proEditable ? (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="Addres"
-                        value={data?.Addres}
+                        onChange={(e) => handelInput(e)}
+                        name="address"
+                        value={user?.address}
                         className="px-4 py-2 -ml-[12rem] bg-transparent max-sm:ml-0 border-b-2 border-ButtonColor/50 outline-none focus:border-ButtonColor duration-300"
                         placeholder="Address"
                       />
                     ) : (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="Addres"
-                        value={data?.Addres}
+                        onChange={(e) => handelInput(e)}
+                        name="address"
+                        value={user?.address}
                         className="px-4 py-2 -ml-[12rem] bg-transparent max-sm:ml-0 border-b-2 outline-none focus:border-ButtonColor duration-300"
                         placeholder="Address"
                         disabled
@@ -253,18 +251,18 @@ function ProfilePage() {
                     {proEditable ? (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="Birthday"
-                        value={data?.Birthday}
+                        onChange={(e) => handelInput(e)}
+                        name="birthday"
+                        value={user?.birthday}
                         className="w-[16rem] px-4 py-2 -ml-[12rem] max-sm:ml-0 bg-transparent border-b-2 border-ButtonColor/50 outline-none focus:border-ButtonColor duration-300"
                         type="date"
                       />
                     ) : (
                       <input
                         required
-                        onChange={(e) => heandalinput(e)}
-                        name="Birthday"
-                        value={data?.Birthday}
+                        onChange={(e) => handelInput(e)}
+                        name="birthday"
+                        value={user?.birthday}
                         className="w-[16rem] px-4 py-2 -ml-[12rem] max-sm:ml-0 bg-transparent border-b-2  outline-none focus:border-ButtonColor duration-300"
                         type="date"
                         disabled

@@ -83,7 +83,7 @@ function Footer() {
               user-friendly platform, post jobs, find workers, and join our
               community of professionals and employers. We value your feedback,
               so don't hesitate to reach out. Thank you for choosing कRM as your
-              go-to destination for cash work solutions.
+              go-to destination for cash work solutions.npm 
             </p>
           </div>
 
