@@ -10,12 +10,12 @@ interface iWork {
 }
 
 const workSchema = new Schema<iWork>({
-    title: { type: String, required: true, unique: true },
-    peoples: { type: String, required: true, unique: true },
-    description: { type: String, required: true },
-    address: { type: String, required: true },
-    startdate: { type: String, required: true },
-    enddate: { type: String, required: true },
+    title: { type: String, required: false },
+    peoples: { type: String, required: false },
+    description: { type: String, required: false },
+    address: { type: String, required: false },
+    startdate: { type: String, required: false },
+    enddate: { type: String, required: false },
 });
 
 const Work = model<iWork>("Work", workSchema);

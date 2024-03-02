@@ -14,16 +14,16 @@ interface User {
 }
 
 const userSchema = new Schema<User>({
-    name: { type: String, required: true, unique: true },
-    aadhar: { type: String, required: false, unique: true },
-    email: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
+    aadhar: { type: String, required: false },
+    email: { type: String, required: true },
     password: { type: String, required: true },
-    gender: { type: String, required: true },
-    number: { type: SchemaTypes.Mixed, required: true },
-    address: { type: String, required: true },
-    age: { type: String, required: true },
-    role: { type: String, required: true },
-    category: { type: String, required: true },
+    gender: { type: String, required: false },
+    number: { type: SchemaTypes.Mixed, required: false },
+    address: { type: String, required: false },
+    age: { type: String, required: false },
+    role: { type: String, required: false },
+    category: { type: String, required: false },
 });
 
 const User = model<User>("User", userSchema);
