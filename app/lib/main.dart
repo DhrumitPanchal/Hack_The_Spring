@@ -50,6 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            "KARM",
+            style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 4),
+          ),
+        ),
         body: WebViewWidget(
       controller: controller,
     ));
