@@ -5,7 +5,6 @@ import { FaBriefcase } from "react-icons/fa";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import Footer from "./Footer";
 
-
 function Home() {
   const [firstData, setFirstData] = useState(null);
 
@@ -17,7 +16,7 @@ function Home() {
             "relative overflow-hidden bg-slate-100 h-screen max-sm:h-fit max-sm:p-[2rem] max-sm:pt-[8rem] max-sm:gap-[6rem] w-full pt-[4rem] px-[4rem] flex max-sm:flex-col items-center justify-between text-white"
           }
         >
-          <div className="absolute z-[2] -left-[10rem] -top-[4rem] -rotate-[25deg] h-screen w-[60rem] bg-ButtonColor"></div>
+          <div className="absolute z-[2] -left-[10rem] -top-[4rem] max-sm:-top-[30rem] -rotate-[25deg] h-screen w-[60rem] bg-ButtonColor"></div>
           {/* <div className="absolute z-[1] top-[2rem] left-0 w-full ">
             <img src={"/home_img.png"} className="w-full h-full" />
           </div> */}
@@ -45,7 +44,11 @@ function Home() {
         {/* ------------------ */}
         <div className=" mt-[6rem] relative z-20 max-sm:py-[2rem] max-sm:mt-[5rem] flex max-sm:flex-col mx-[6rem] max-sm:mx-[3rem] max-sm:gap-[2rem] gap-[1rem] rounded-[1.6rem]  ">
           <div className="w-full flex max-sm:rounded-[1.6rem] rounded-tl-[1.6rem] rounded-bl-[1.6rem] flex-col justify-center items-center py-[2rem] px-[3rem] max-sm:px-[2.5rem] max-sm:py-[2rem] text-primaryColor bg-white shadow-[0_4px_7px_rgba(0,0,0,0.4)] hover:shadow-[0_4px_7px] hover:shadow-primaryColor/60 transition-all duration-300">
-            <img src="/unemployment.png" className="h-[5rem]" alt="" />
+            <img
+              src="/unemployment.png"
+              className="h-[5rem] -hue-rotate-20"
+              alt=""
+            />
             <h1 className="mt-[.4rem] text-[2rem] font-bold capitalize">
               23.22%
             </h1>

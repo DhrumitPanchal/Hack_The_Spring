@@ -44,7 +44,7 @@ function Work() {
   ];
 
   return (
-    <section className="relative h-full w-full text-black">
+    <section className="relative w-full h-full text-black">
       {openCreateWork && (
         <div
           onClick={(e) => {
@@ -55,7 +55,7 @@ function Work() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className=" flex gap-[1.2rem] p-[2rem] pt-5  w-[35%] flex-col rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.4)] bg-gray-100 text-gray-500"
+            className=" flex gap-[1.2rem] p-[2rem] pt-5  w-[35%] max-sm:w-[90%] flex-col rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.4)] bg-gray-100 text-gray-500"
           >
             <h1 className="font-bold text-[2vw] text-black  text-center w-full ">
               Add Work
@@ -65,7 +65,7 @@ function Work() {
                 <h1 className="font-semibold">Name</h1>
                 <input
                   type="text"
-                  className="w-full pl-3  border-2 border-gray-200  focus:border-ButtonColor outline-none p-2 rounded-md"
+                  className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
                 />
               </div>
               <div className="w-1/2">
@@ -84,36 +84,36 @@ function Work() {
             </div>
             {/* <div className="flex flex-col gap-2 text-primaryColor">
                         <h1 className='font-semibold capitalize'>work title</h1>
-                        <input type="text" className='pl-3  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md' />
+                        <input type="text" className='p-2 pl-3 border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor' />
                     </div> */}
             <div className="flex flex-col gap-2 ">
               <h1 className="font-semibold capitalize">Work descripton</h1>
               <textarea
                 type="text"
-                className="pl-3  border-2 border-gray-200  focus:border-ButtonColor outline-none p-2 rounded-md"
+                className="p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
               />
             </div>
             {/* <div className="flex flex-col gap-2 text-primaryColor">
                         <h1 className='font-semibold capitalize'>expected budget</h1>
-                        <input type="text" className='pl-3  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md' />
+                        <input type="text" className='p-2 pl-3 border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor' />
                     </div> */}
             {/* <div className="flex flex-col gap-2 text-primaryColor">
                         <h1 className='font-semibold capitalize'>address</h1>
-                        <textarea type="text" className='pl-3  border-2 border-primaryColor/40 focus:border-primaryColor outline-none p-2 rounded-md' />
+                        <textarea type="text" className='p-2 pl-3 border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor' />
                     </div> */}
             <div className=" flex gap-[2rem] justify-between items-end">
               <div className="w-1/2">
                 <h1 className="font-semibold capitalize">start date</h1>
                 <input
                   type="text"
-                  className="w-full pl-3  border-2 border-gray-200  focus:border-ButtonColor outline-none p-2 rounded-md"
+                  className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
                 />
               </div>
               <div className="w-1/2">
                 <h1 className="font-semibold capitalize">end date</h1>
                 <input
                   type="text"
-                  className="w-full pl-3  border-2 border-gray-200  focus:border-ButtonColor outline-none p-2 rounded-md"
+                  className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
                 />
               </div>
             </div>
@@ -132,9 +132,9 @@ function Work() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative overflow-hidden flex  gap-[1.4rem] rounded-[.8rem] h-[24rem] w-fit bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
+            className="relative overflow-hidden flex max-sm:flex-col max-sm:gap-0 gap-[1.4rem] rounded-[.8rem] h-[24rem] max-sm:h-[40rem] w-fit max-sm:w-[75%]  bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
           >
-            <div className="h-full w-[24rem] p-[1rem] ">
+            <div className="h-full w-[24rem] max-sm:w-full max-sm:h-[20rem] p-[1rem] max-sm:pb-0 ">
               <img
                 src="./image2.jpg"
                 alt=""
@@ -142,14 +142,13 @@ function Work() {
                 className="border-[1px] border-slate-400 h-full w-full rounded-[1rem] "
               />
             </div>
-            <div className="flex flex-col gap-[1rem] w-[20rem] py-[1.4rem] pr-[.8rem]">
+            <div className="flex flex-col gap-[.4rem] w-[20rem] max-sm:w-full py-[1.4rem] max-sm:px-[1rem] pr-[.8rem]">
               <h2 className="mx-auto text-[1.6rem] font-bold text-primaryColor">
                 Wooden Bed Making
               </h2>
+              <h2 className="mt-[.4rem]">Location</h2>
+              <h2 className="">Number of workers : </h2>
               <div className="mt-[rem]">
-                <h2 className="text-[1.1rem] font-semibold capitalize">
-                  date :
-                </h2>
                 <div className="w-full flex gap-[1.2rem] ">
                   <h2>
                     <span className="font-semibold">start :</span> 10/10/2023
@@ -195,22 +194,21 @@ function Work() {
         <div className="flex flex-wrap gap-[1rem] max-sm:gap-[1.4rem]">
           {data.map((e) => {
             return (
-              <div className="overflow-hidden p-[.8rem] flex rounded-[.8rem] gap-[1rem] h-full w-fit border-[1px] border-slate-300 max-sm:w-full bg-white">
-                <div className="h-full w-[5.8rem] ">
-                  <img
-                    src="./image2.jpg"
-                    alt=""
-                    srcset=""
-                    className="h-full w-full border-[1px] border-slate-400  rounded-[.4rem] "
-                  />
-                </div>
-                <div className="flex flex-col justify-between items-start w-[14rem] pr-[.8rem]">
+              <div className="overflow-hidden p-[.8rem] flex rounded-[.8rem] rounded-t-none border-t-[3px] border-primaryColor gap-[1rem] h-full w-fit max-sm:w-full bg-primaryColor/10">
+                <div className="flex flex-col gap-[.8rem] justify-between items-start w-[21rem] px-[1rem] pb-[.5rem]">
                   <div className="flex flex-col">
-                    <h2 className="text-[1.3rem]  font-bold text-primaryColor">
+                    <h2 className="text-[1.3rem] mt-[.6rem] font-bold text-primaryColor">
                       Wooden Bad Making
                     </h2>
-                    <h2 className="text-[1.1rem] capitalize font-semibold text-TextColor2">
-                      date : {e.date}
+                    <h2 className="mt-[.6rem] text-[.9rem]">location : 32</h2>
+                    <h2>number of worker :</h2>
+                    <h2 className="mt-[.2rem] font-medium">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Excepturi voluptatum si est sed eligendi alias autem non
+                      nemo minima exercitationem.
+                    </h2>
+                    <h2 className="text-[.9rem] mt-[.1rem] capitalize ">
+                      posted 1h ago
                     </h2>
                   </div>
                   <button
@@ -218,9 +216,9 @@ function Work() {
                       setOpenWork(!openWork);
                       setOpenWorkData(e);
                     }}
-                    className="py-[.1rem] px-[1rem] border-[1px] border-slate-300 hover:bg-primaryColor hover:text-white transition-colors duration-200 bg-slate-200 rounded-[.4rem] font-medium mb-[.2rem] text-[.8rem]"
+                    className="py-[.4rem] px-[1rem] mt-[.4rem] border-[1px] w-full border-slate-300 text-white  transition-colors duration-200 bg-primaryColor rounded-[.4rem] font-medium mb-[.2rem] text-[1.1rem]"
                   >
-                    View
+                    View details
                   </button>
                 </div>
               </div>

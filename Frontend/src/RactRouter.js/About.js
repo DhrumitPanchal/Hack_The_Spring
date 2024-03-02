@@ -37,7 +37,7 @@ function About() {
             </div>
           </a>
         </div>
-        <div className=" mr-[6rem] mt-[9rem] relative h-[28rem] w-[24rem]  max-sm:mr-0 max-sm:mt-0">
+        <div className=" mr-[6rem] max-sm:left-[4rem] max-sm:mr-0 mt-[9rem] relative h-[28rem] w-[24rem]   max-sm:mt-0">
           <div className="absolute -bottom-[3rem] -left-[3rem] z-[3] h-[10rem] w-[18rem] rounded-tl-[3rem] rounded-br-[3rem] bg-primaryColor"></div>
           <div className="overflow-hidden absolute z-[4]  h-[28rem] w-[24rem] rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
             <img
@@ -50,23 +50,23 @@ function About() {
       </div>
 
       {/* ------------ */}
-      <div id="readmore" className="m-[3rem] mt-[12rem] mb-[6rem]">
-        <p className="mx-[20rem] my-[4rem] max-sm:mx-[2rem] max-sm:mt-[28rem] text-center">
+      <div id="readmore" className="m-[3rem] mt-[12rem] max-sm:mt-0 mb-[6rem]">
+        <p className="mx-[20rem] my-[4rem] max-sm:mx-[2rem] max-sm:mt-[8rem] text-center">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
           molestiae incidunt earum delectus, minus debitis atque? Quibusdam
           rerum eligendi ducimus.
         </p>
-        <div className="px-[6rem] w-full flex flex-col items-center gap-[4rem]">
+        <div className="px-[6rem] max-sm:px-[1rem] w-full flex flex-col items-center gap-[4rem]">
           <div className="w-full flex max-sm:flex-col justify-between items-center gap-[4rem]">
             <div className="relative flex justify-center items-center h-[30rem] w-[29rem] max-sm:w-full">
-              <div className="overflow-hidden absolute top-0 right-0 h-[14rem] w-[16rem] rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
+              <div className="overflow-hidden absolute top-0 right-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem] rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="/Indian Construction Workers.jpeg"
                   alt=""
                   className="h-full w-full hover:scale-[1.1] transition-all duration-300"
                 />
               </div>
-              <div className="overflow-hidden absolute bottom-0 left-0 h-[14rem] w-[16rem] rounded-br-[4rem] rounded-tl-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
+              <div className="overflow-hidden absolute bottom-0 left-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem]  rounded-br-[4rem] rounded-tl-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="./img3.jpg"
                   alt=""
@@ -112,14 +112,14 @@ function About() {
             </div> */}
 
             <div className="relative flex justify-center items-center h-[30rem] w-[29rem] max-sm:w-full">
-              <div className="overflow-hidden absolute top-0 right-0 h-[14rem] w-[16rem] rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
+              <div className="overflow-hidden absolute top-0 right-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem]  rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="./img2.jpg"
                   alt=""
                   className="h-full w-full hover:scale-[1.1] transition-all duration-300"
                 />
               </div>
-              <div className="overflow-hidden absolute bottom-0 left-0 h-[14rem] w-[16rem] rounded-br-[4rem] rounded-tl-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
+              <div className="overflow-hidden absolute bottom-0 left-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem]  rounded-br-[4rem] rounded-tl-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="./woodwork.jpeg"
                   alt=""

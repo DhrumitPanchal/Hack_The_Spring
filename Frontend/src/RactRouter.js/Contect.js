@@ -5,11 +5,11 @@ import Footer from "./Footer";
 function Contect() {
   return (
     <>
-      <section className="relative flex text-gray-600 ">
-        <div className="h-screen w-1/2 flex justify-center items-center bg-[#a46570]">
+      <section className="relative flex text-gray-600 max-sm:flex-col ">
+        <div className="h-screen w-1/2 max-sm:w-full flex justify-center items-center bg-[#006fcb]">
           <img src="./contact.png" className="h-[30rem]" alt="" />
         </div>
-        <div className="container w-1/2 py-24">
+        <div className="container w-1/2 py-24 max-sm:w-full">
           <div className="flex flex-col w-full mb-12 text-center">
             <h1 className="mb-1 text-2xl font-medium text-gray-900 underline sm:text-3xl title-font">
               Contact Us

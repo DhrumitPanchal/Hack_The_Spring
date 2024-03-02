@@ -36,15 +36,16 @@ function Navebar() {
             RM
           </h2>
         </NavLink>
+
         <ul
           className={` max-sm:absolute max-sm:justify-center max-sm:items-center  max-sm:top-0  ${
             menuopen ? "max-sm:left-0" : "max-sm:left-full"
-          } max-sm:duration-200 max-sm:bg-primaryColor max-sm:h-[50rem] max-sm:w-full flex justify-between text-lg  text-black font-semibold capitalize`}
+          } max-sm:duration-200 max-sm:bg-primaryColor max-sm:h-screen max-sm:w-full flex justify-between text-lg  text-black font-semibold capitalize`}
         >
-          {/* <FaTimes
+          <FaTimes
             onClick={() => setMenuopen(!menuopen)}
-            className="text-[2rem] text-white"
-          /> */}
+            className="absolute top-4 hidden max-sm:block right-4 text-[2rem] text-white"
+          />
           <div className="flex max-sm:flex-col max-sm:gap-[1rem] max-sm:text-center text-black font-bold ">
             <li className="px-3">
               <NavLink
@@ -117,6 +118,11 @@ function Navebar() {
               />
             </div>
           </NavLink>
+
+          <FaBars
+            onClick={() => setMenuopen(!menuopen)}
+            className=" hidden max-sm:block text-[2rem] text-primaryColor"
+          />
         </div>
       </div>
     </>

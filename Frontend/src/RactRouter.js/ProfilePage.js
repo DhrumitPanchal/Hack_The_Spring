@@ -28,8 +28,8 @@ function ProfilePage() {
             <div className="">
               <div className="relative z-20 mx-auto h-[17rem]  w-full flex justify-center items-center">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudDbHeW2OobhX8E9fAY-ctpUAHeTNWfaqJA&usqp=CAU"
-                  className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor  rounded-[8px] "
+                  src="./persone.png"
+                  className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor  rounded-full "
                   alt=""
                   srcset=""
                 />

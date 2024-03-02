@@ -4,15 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primaryColor": "#E5233D",
-        "Cardcolor": "#F1DEE0",
-        "ButtonColor": "#A46570",
-        "TextColor1": " #000000 ",
-        "TextColor2": "#6C6C6C",
-
-       
+        primaryColor: "#006fcb",
+        Cardcolor: "#F1DEE0",
+        ButtonColor: "#006fcb",
+        TextColor1: " #000000 ",
+        TextColor2: "#6C6C6C",
       },
-
     },
   },
   plugins: [],
