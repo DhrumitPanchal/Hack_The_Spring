@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'KARM',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
     )
-    ..loadRequest(Uri.parse('https://dhrumitpanchal.me'));
+    ..loadRequest(Uri.parse('https://karm123.vercel.app'));
 
   @override
   Widget build(BuildContext context) {
