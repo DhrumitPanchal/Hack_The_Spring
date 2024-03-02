@@ -8,7 +8,6 @@ class AuthController {
         try {
             const {
                 name,
-                aadhar,
                 email,
                 password,
                 gender,
@@ -18,9 +17,12 @@ class AuthController {
                 role,
                 category,
             } = req.body;
+            const currentDate = new Date();
+            currentDate.setSeconds(currentDate.getSeconds() + 2002020202);
+
             const user = new User({
                 name,
-                aadhar,
+                aadhar: currentDate.toString(),
                 email,
                 password,
                 gender,

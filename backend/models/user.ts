@@ -1,4 +1,4 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 interface User {
     name: string;
@@ -14,17 +14,19 @@ interface User {
 }
 
 const userSchema = new Schema<User>({
-    name: { type: String, required: true },
-    aadhar: { type: String, required: false },
-    email: { type: String, required: true },
-    password: { type: String, required: true },
-    gender: { type: String, required: false },
-    number: { type: SchemaTypes.Mixed, required: false },
-    address: { type: String, required: false },
-    age: { type: String, required: false },
-    role: { type: String, required: false },
-    category: { type: String, required: false },
+    name: { type: String, unique: false },
+    aadhar: { type: String, unique: false },
+    email: { type: String, unique: false },
+    password: { type: String, unique: false },
+    gender: { type: String, unique: false },
+    number: { type: String, unique: false },
+    address: { type: String, unique: false },
+    age: { type: String, unique: false },
+    role: { type: String, unique: false },
+    category: { type: String, unique: false },
 });
+
+userSchema.index({ name: 1 }, { unique: false });
 
 const User = model<User>("User", userSchema);
 
