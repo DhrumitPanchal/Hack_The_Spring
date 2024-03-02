@@ -6,6 +6,7 @@ import cors from "cors";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import { log } from "console";
+import workRouter from "./routes/work.js";
 
 config();
 
@@ -24,6 +25,7 @@ mongoConnection();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/api/auth", authRouter);
+app.use("/api/work", workRouter);
 app.use(cors());
 app.use(morgan("dev"));
 const port: any = process.env["PORT"] || 3000;

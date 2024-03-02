@@ -8,6 +8,7 @@ class AuthController {
         try {
             const {
                 name,
+                aadhar,
                 email,
                 password,
                 gender,
@@ -19,6 +20,7 @@ class AuthController {
             } = req.body;
             const user = new User({
                 name,
+                aadhar,
                 email,
                 password,
                 gender,

@@ -2,6 +2,7 @@ import { Schema, SchemaTypes, model } from "mongoose";
 
 interface User {
     name: string;
+    aadhar: string;
     email: string;
     password: string;
     gender: string;
@@ -14,6 +15,7 @@ interface User {
 
 const userSchema = new Schema<User>({
     name: { type: String, required: true, unique: true },
+    aadhar: { type: String, required: false, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     gender: { type: String, required: true },
