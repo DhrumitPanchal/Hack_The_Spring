@@ -10,20 +10,20 @@ function Navebar() {
 
   const [data, setData] = useState({});
 
-  useEffect(() => {
-    // const checkLOcData = setData(JSON.parse(localStorage.getItem("loginData")))
-    // setData(checkLOcData)
-    if (
-      localStorage.getItem("loginData") != undefined ||
-      localStorage.getItem("loginData") != null
-    ) {
-      setIsLogin(!isLogin);
-    } else {
-      setData(JSON.parse(localStorage.getItem("loginData")));
-    }
-    console.log(JSON.parse(localStorage.getItem("loginData")));
-  }, []);
-  // checkLOcData == null || undefined ? setIsLogin(!isLogin) : setIsLogin(isLogin)
+  // useEffect(() => {
+  //   // const checkLOcData = setData(JSON.parse(localStorage.getItem("loginData")))
+  //   // setData(checkLOcData)
+  //   if (
+  //     localStorage.getItem("loginData") != undefined ||
+  //     localStorage.getItem("loginData") != null
+  //   ) {
+  //     setIsLogin(!isLogin);
+  //   } else {
+  //     setData(JSON.parse(localStorage.getItem("loginData")));
+  //   }
+  //   console.log(JSON.parse(localStorage.getItem("loginData")));
+  // }, []);
+  // // checkLOcData == null || undefined ? setIsLogin(!isLogin) : setIsLogin(isLogin)
 
   return (
     <>

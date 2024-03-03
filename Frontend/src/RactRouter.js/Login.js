@@ -1,216 +1,27 @@
-import React, { useState } from "react";
-import Footer from "./Footer";
+import React, { useState, useContext } from "react";
 import axios from "axios";
-
-// function Login() {
-
-//   return (
-//     <section className="flex justify-center w-full h-max">
-//       <div className="flex w-full h-screen max-sm:flex-col">
-//         <div className="flex  pt-[6rem] h-full">
-//           {/* <img src="./Mobilelogin-rafiki.png" alt="" /> */}
-//         </div>
-//         <div className="flex pt-[6rem] max-sm:pt-0 p-[4rem] max-sm:p-[2.5rem] w-1/2 h-full">
-//           {!isLogin ? (
-//             <div className="box flex gap-5 p-[2rem] pt-5  bg-[#f7f5f5] w-full flex-col rounded-xl">
-//               <h1 className="font-bold text-[2vw]  text-center w-full ">
-//                 Login
-//               </h1>
-//               <div className="flex flex-col gap-2 text-primaryColor">
-//                 <h1 className="font-semibold">Username</h1>
-//                 <input
-//                   type="text"
-//                   className="p-2 pl-3 border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
-//                 />
-//               </div>
-//               <div className="flex flex-col gap-2 text-primaryColor">
-//                 <h1 className="font-semibold">Username</h1>
-//                 <input
-//                   type="text"
-//                   className="p-2 pl-3 border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
-//                 />
-//               </div>
-
-//               <button
-//                 onClick={() => setIsLogin(!isLogin)}
-//                 className="p-2 text-white rounded-md bg-gradient-to-r from-primaryColor/70 to-primaryColor hover:bg-primaryColor/90"
-//               >
-//                 Submit
-//               </button>
-
-//               <span className="text-center text-primaryColor">
-//                 {" "}
-//                 Don't haven account ?{" "}
-//                 <a
-//                   className="font-semibold cursor-pointer"
-//                   onClick={() => setIsLogin(!isLogin)}
-//                 >
-//                   Signup
-//                 </a>
-//               </span>
-//             </div>
-//           ) : (
-//             <div className="box flex gap-5 p-20 max-sm:p-[2rem] pt-5  bg-[#f7f5f5] w-full flex-col rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.4)]">
-//               <h1 className="font-bold text-[2vw]  text-center w-full ">
-//                 Sign Up
-//               </h1>
-//               <div className="flex flex-col gap-2 text-primaryColor">
-//                 <h1 className="font-semibold">Username</h1>
-//                 <input
-//                   required
-//                   onChange={heandalinput}
-//                   name="name"
-//                   value={loginData.name}
-//                   type="text"
-//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
-//                 />
-//               </div>
-//               <div className="flex flex-col gap-2 text-primaryColor">
-//                 <h1 className="font-semibold">Eamil</h1>
-//                 <input
-//                   required
-//                   type="email"
-//                   onChange={heandalinput}
-//                   name="Email"
-//                   value={loginData.Email}
-//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
-//                 />
-//               </div>
-//               <div className="flex flex-col gap-2 text-primaryColor">
-//                 <h1 className="font-semibold">Password</h1>
-//                 <input
-//                   required
-//                   onChange={heandalinput}
-//                   name="password"
-//                   value={loginData.password}
-//                   type="text"
-//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
-//                 />
-//               </div>
-//               <div className="flex flex-col gap-2 text-primaryColor">
-//                 <h1 className="font-semibold">Confirm Password</h1>
-//                 <input
-//                   required
-//                   onChange={heandalinput}
-//                   name="Confpassword"
-//                   value={loginData.Confpassword}
-//                   type="text"
-//                   className="p-2 pl-3 bg-transparent border-2 rounded-md outline-none border-primaryColor/40 focus:border-primaryColor"
-//                 />
-//               </div>
-//               <button
-//                 onClick={() => {
-//                   setDataToLocalSt();
-//                 }}
-//                 type="submit"
-//                 className="p-2 text-white rounded-md bg-gradient-to-r from-primaryColor/70 to-primaryColor hover:bg-primaryColor/90"
-//               >
-//                 Submit
-//               </button>
-
-//               <span className="text-center text-primaryColor">
-//                 {" "}
-//                 Already haven account ?{" "}
-//                 <a
-//                   onClick={() => {
-//                     setIsLogin(!isLogin);
-//                   }}
-//                   className="font-semibold cursor-pointer"
-//                 >
-//                   Login
-//                 </a>
-//               </span>
-//             </div>
-//           )}
-//         </div>
-//         <div className="flex h-full max-sm:hidden">
-//           <img src="./Mobilelogin-rafiki.png" alt="" />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Login;
+import { Context } from "./Context";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const [loginData, setLoginData] = useState({
-    userName: "",
+    name: "",
     email: "",
     password: "",
-    Addres: "",
-    Catagory: "",
-    Birthday: "",
-    Gender: "",
+    address: "",
+    role: "",
+    gender: "",
     Contect: "",
   });
-
-  const Signup = async () => {
-    try {
-      const data = await axios.post(
-        "https://no-poverty.adaptable.app/worker/signup",
-        {
-          username: loginData.userName,
-          email: loginData.email,
-          password: loginData.password,
-        }
-      );
-      alert("Signup successful");
-      console.log({ data });
-      setLoginData({
-        userName: "",
-        email: "",
-        password: "",
-        Addres: "",
-        Catagory: "",
-        Birthday: "",
-        Gender: "",
-        Contect: "",
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const Login = async () => {
-    try {
-      const data = await axios.post(
-        "https://no-poverty.adaptable.app/worker/login",
-        {
-          email: loginData.email,
-          password: loginData.password,
-        }
-      );
-      alert("Login successful");
-      console.log({ data });
-      setLoginData({
-        userName: "",
-        email: "",
-        password: "",
-        Addres: "",
-        Catagory: "",
-        Birthday: "",
-        Gender: "",
-        Contect: "",
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  const { register, login } = useContext(Context);
 
   const heandalinput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    setLoginData((prev) => {
-      return { ...prev, [name]: value };
-    });
+    setLoginData({ ...loginData, [name]: value });
   };
 
-  const setDataToLocalSt = () => {
-    localStorage.setItem("loginData", JSON.stringify(loginData));
-  };
   return (
     <>
       <section className="flex pt-[2rem] bg-slate-100 justify-center items-center h-screen">
@@ -442,8 +253,8 @@ function Login() {
                           <input
                             required
                             onChange={(e) => heandalinput(e)}
-                            name="userName"
-                            value={loginData.userName}
+                            name="name"
+                            value={loginData.name}
                             type="text"
                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-ButtonColor"
                             placeholder="John"
@@ -486,8 +297,7 @@ function Login() {
                         </span>
                         <button
                           onClick={() => {
-                            setDataToLocalSt();
-                            Login();
+                            register(loginData);
                           }}
                           type="submit"
                           class="block w-full max-w-xs mx-auto bg-ButtonColor/70 hover:bg-ButtonColor focus:bg-ButtonColor text-white rounded-lg px-3 py-3 font-semibold"
@@ -516,8 +326,8 @@ function Login() {
                           </div>
                           <input
                             onChange={(e) => heandalinput(e)}
-                            name="userName"
-                            value={loginData.userName}
+                            name="name"
+                            value={loginData.name}
                             type="text"
                             class="w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-ButtonColor"
                             placeholder="John"
@@ -527,7 +337,7 @@ function Login() {
                       <div class="w-1/2 px-3  ">
                         <select
                           onChange={(e) => heandalinput(e)}
-                          name="Catagory"
+                          name="role"
                           id=""
                           className="w-full ml-[1.3rem] pl-4 -pr-[3rem] py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-ButtonColor"
                         >
@@ -539,7 +349,7 @@ function Login() {
                             UserCatagory
                           </option>
                           <option value="client">Client</option>
-                          <option value="carpainter">carpainter</option>
+                          <option value="worker">worker</option>
                         </select>
                       </div>
                     </div>
@@ -598,10 +408,14 @@ function Login() {
                           </a>
                         </span>
                         <button
-                          onClick={() => {
-                            setDataToLocalSt();
-                            Signup();
-                          }}
+                          onClick={() =>
+                            register(
+                              loginData.name,
+                              loginData.email,
+                              loginData.password,
+                              loginData.role
+                            )
+                          }
                           type="submit"
                           class="block w-full max-w-xs mx-auto bg-ButtonColor/70 hover:bg-ButtonColor focus:bg-ButtonColor text-white rounded-lg px-3 py-3 font-semibold"
                         >

@@ -6,29 +6,12 @@ class AuthController {
     // signup controller
     static async signup(req: any, res: any) {
         try {
-            const {
-                name,
-                aadhar,
-                email,
-                password,
-                gender,
-                number,
-                address,
-                age,
-                role,
-                category,
-            } = req.body;
+            const { name, email, password, role } = req.body;
             const user = new User({
                 name,
-                aadhar,
                 email,
                 password,
-                gender,
-                number,
-                address,
-                age,
                 role,
-                category,
             });
             await user.save();
             log(`User saved! Email: ${user.email}`);

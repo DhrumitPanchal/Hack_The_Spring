@@ -21,7 +21,7 @@ const mongoConnection = async () => {
     log("Connected to MongoDB");
 };
 mongoConnection();
-
+app.set;
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/api/auth", authRouter);

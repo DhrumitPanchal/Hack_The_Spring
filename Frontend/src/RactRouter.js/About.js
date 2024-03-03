@@ -94,7 +94,7 @@ function About() {
           <div className="w-full flex justify-between max-sm:flex-col-reverse items-center gap-[4rem]">
             <div className=" w-[40rem] max-sm:w-full">
               <h2 className="text-[2.2rem] text-primaryColor font-medium mb-[2rem]">
-                Mission
+                Vision
               </h2>
               <p className="text-[1.4rem]">
                 "Our vision at कRM is to revolutionize the way wage workers and

@@ -7,7 +7,7 @@ function Contect() {
     <>
       <section className="relative flex text-gray-600 max-sm:flex-col ">
         <div className="h-screen w-1/2 max-sm:w-full flex justify-center items-center bg-[#006fcb]">
-          <img src="./contact.png" className="h-[30rem]" alt="" />
+          <img src="./conteact.png" className="h-[35rem]" alt="" />
         </div>
         <div className="container w-1/2 py-24 max-sm:w-full">
           <div className="flex flex-col w-full mb-12 text-center">
@@ -15,7 +15,7 @@ function Contect() {
               Contact Us
             </h1>
           </div>
-          <div className="w-full px-[4rem]">
+          <div className="w-full px-[4rem] max-sm:px-[2rem]">
             <div className="flex flex-col gap-[.2rem]">
               <div className="w-full p-2 max-sm:w-full">
                 <input

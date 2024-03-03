@@ -1,10 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
-import Navebar from "./Navebar";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Footer from "./Footer";
+import { Context } from "./Context";
 function Work() {
   const [openWork, setOpenWork] = useState(false);
   const [openCreateWork, setOpenCreateWork] = useState(false);
   const [openWorkData, setOpenWorkData] = useState({});
+  const { handelAddWork } = useContext(Context);
+  const [addWork, setAddWork] = useState({
+    title: "",
+    address: "",
+    // catagory: "",
+    peoples: 0,
+    description: "",
+    startdate: "",
+    enddate: "",
+  });
+  const heandalinput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setAddWork({ ...addWork, [name]: value });
+  };
   const data = [
     {
       id: 1,
@@ -65,22 +81,27 @@ function Work() {
                 <h1 className="font-semibold">Name</h1>
                 <input
                   type="text"
+                  name="title"
+                  value={addWork.title}
+                  onChange={(e) => heandalinput(e)}
                   className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
                 />
               </div>
-              <div className="w-1/2">
+              {/* <div className="w-1/2">
                 <label htmlFor="Catagory"></label>
                 <select
-                  name="Catagory"
+                  name="catagory"
+                  value={addWork.catagory}
+                  onChange={(e) => heandalinput(e)}
                   className="w-full mt-[1rem] px-[2rem] py-[.4rem] text-[1.3rem] border-2 border-gray-200  focus:border-ButtonColor outline-none p-2 rounded-md  text-black"
                 >
                   <option value="" defaultChecked>
                     Catagory
                   </option>
-                  <option value="">Catagory</option>
-                  <option value="">Catagory</option>
+                  <option value="furniture">furniture</option>
+                  <option value="furniture">furniture</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             {/* <div className="flex flex-col gap-2 text-primaryColor">
                         <h1 className='font-semibold capitalize'>work title</h1>
@@ -89,6 +110,9 @@ function Work() {
             <div className="flex flex-col gap-2 ">
               <h1 className="font-semibold capitalize">Work descripton</h1>
               <textarea
+                name="description"
+                value={addWork.description}
+                onChange={(e) => heandalinput(e)}
                 type="text"
                 className="p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
               />
@@ -105,19 +129,45 @@ function Work() {
               <div className="w-1/2">
                 <h1 className="font-semibold capitalize">start date</h1>
                 <input
-                  type="text"
+                  name="startdate"
+                  value={addWork.startdate}
+                  onChange={(e) => heandalinput(e)}
+                  type="date"
                   className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
                 />
               </div>
               <div className="w-1/2">
                 <h1 className="font-semibold capitalize">end date</h1>
                 <input
-                  type="text"
+                  name="enddate"
+                  value={addWork.enddate}
+                  onChange={(e) => heandalinput(e)}
+                  type="date"
                   className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
                 />
               </div>
             </div>
-            <button className="text-[1.2rem] bg-gradient-to-r p-2 rounded-md  bg-ButtonColor/70 hover:bg-ButtonColor focus:bg-ButtonColor text-white">
+            <input
+              name="address"
+              value={addWork.address}
+              onChange={(e) => heandalinput(e)}
+              type="text"
+              placeholder="address"
+              className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
+            />
+
+            <input
+              name="peoples"
+              value={addWork.peoples}
+              onChange={(e) => heandalinput(e)}
+              type="number"
+              placeholder="number of peoples required"
+              className="w-full p-2 pl-3 border-2 border-gray-200 rounded-md outline-none focus:border-ButtonColor"
+            />
+            <button
+              onClick={() => handelAddWork(addWork)}
+              className="text-[1.2rem] bg-gradient-to-r p-2 rounded-md  bg-ButtonColor/70 hover:bg-ButtonColor focus:bg-ButtonColor text-white"
+            >
               Submit
             </button>
           </div>
@@ -195,7 +245,7 @@ function Work() {
           {data.map((e) => {
             return (
               <div className="overflow-hidden p-[.8rem] flex rounded-[.8rem] rounded-t-none border-t-[3px] border-primaryColor gap-[1rem] h-full w-fit max-sm:w-full bg-primaryColor/10">
-                <div className="flex flex-col gap-[.8rem] justify-between items-start w-[21rem] px-[1rem] pb-[.5rem]">
+                <div className="flex flex-col gap-[.8rem] justify-between items-start w-[21rem] max-sm:w-full px-[1rem] pb-[.5rem]">
                   <div className="flex flex-col">
                     <h2 className="text-[1.3rem] mt-[.6rem] font-bold text-primaryColor">
                       Wooden Bad Making

@@ -16,22 +16,22 @@ function Home() {
             "relative overflow-hidden bg-slate-100 h-screen max-sm:h-fit max-sm:p-[2rem] max-sm:pt-[8rem] max-sm:gap-[6rem] w-full pt-[4rem] px-[4rem] flex max-sm:flex-col items-center justify-between text-white"
           }
         >
-          <div className="absolute z-[2] -left-[10rem] -top-[4rem] max-sm:-top-[30rem] -rotate-[25deg] h-screen w-[60rem] bg-ButtonColor"></div>
+          <div className=" absolute z-[2] -left-[10rem] max-sm:-left-[110px] -top-[4rem] max-sm:-top-[250px] -rotate-[25deg] h-screen w-[60rem] max-sm:h-[600px] max-sm:w-[500px] bg-ButtonColor"></div>
           {/* <div className="absolute z-[1] top-[2rem] left-0 w-full ">
             <img src={"/home_img.png"} className="w-full h-full" />
           </div> */}
-          <div className="relative z-20">
+          <div className="relative z-20 ">
             <h3 className="mb-[.4rem] text-[2.6rem] font-bold">
-              <span className="text-primaryColor">क</span>RM
+              <span className="text-white">क</span>RM
             </h3>
-            <h1 className="mb-[1.6rem] text-[1.6rem] font-semibold leading-[2.rem] w-[40rem] max-sm:w-full">
+            <h1 className="mb-[1.6rem]  text-[1.6rem] font-semibold leading-[2.rem] w-[40rem] max-sm:w-full">
               {firstData
                 ? firstData
                 : "Looking for flexible work opportunities or need reliable workers for quick tasks? You're in the right place! कRM is your one-stop solution for connecting skilled workers and clients for cash jobs."}
             </h1>
 
             <NavLink to={"/Login"}>
-              <div className="w-fit flex justify-center items-center py-[.4rem] px-[1rem] rounded-[.3rem] text-[1.2rem] font-semibold capitalize bg-primaryColor text-white   ">
+              <div className="w-fit flex justify-center items-center py-[.4rem] px-[1rem] rounded-[.3rem] text-[1.2rem] font-semibold capitalize bg-white text-primaryColor   ">
                 get startded
               </div>
             </NavLink>

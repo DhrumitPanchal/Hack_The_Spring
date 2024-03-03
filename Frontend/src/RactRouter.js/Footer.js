@@ -83,7 +83,7 @@ function Footer() {
               user-friendly platform, post jobs, find workers, and join our
               community of professionals and employers. We value your feedback,
               so don't hesitate to reach out. Thank you for choosing कRM as your
-              go-to destination for cash work solutions.npm 
+              go-to destination for cash work solutions.npm
             </p>
           </div>
 
@@ -91,7 +91,7 @@ function Footer() {
             <h2 className="ma text-[1.6rem] font-semibold mb-[.4rem]">
               Quick links
             </h2>
-            <ul className="max-sm:text-[1.2rem] capitalize">
+            <ul className="text-[1.2rem] capitalize">
               <li className="px-3">
                 <NavLink to={"/"}>home</NavLink>
               </li>
@@ -123,24 +123,24 @@ function Footer() {
               Contect us
             </h2>
             <div className="flex flex-col gap-[.4rem]">
-            <div className="flex gap-[1rem]">
-              <h2 className="text-[1.2rem] font-semibold capitalize">
-                Call us:
-              </h2>
-              <h3 className="text-[1.1rem]">+91 9662*******</h3>
-            </div>
-            <div className="flex gap-[1rem]">
-              <h2 className="text-[1.2rem] font-semibold capitalize">
-                email us:
-              </h2>
-              <h3 className="text-[1.1rem]">xyz123@gamil.com</h3>
-            </div>
-            <div className="flex gap-[1rem]">
-              <h2 className="text-[1.2rem] font-semibold capitalize">
-                whatsApp
-              </h2>
-              <h3 className="text-[1.1rem]">+91 9662*******</h3>
-            </div>
+              <div className="flex gap-[1rem]">
+                <h2 className="text-[1.2rem] font-semibold capitalize">
+                  Call us:
+                </h2>
+                <h3 className="text-[1.1rem]">+91 9662*******</h3>
+              </div>
+              <div className="flex gap-[1rem]">
+                <h2 className="text-[1.2rem] font-semibold capitalize">
+                  email us:
+                </h2>
+                <h3 className="text-[1.1rem]">xyz123@gamil.com</h3>
+              </div>
+              <div className="flex gap-[1rem]">
+                <h2 className="text-[1.2rem] font-semibold capitalize">
+                  whatsApp
+                </h2>
+                <h3 className="text-[1.1rem]">+91 9662*******</h3>
+              </div>
             </div>
           </div>
         </div>

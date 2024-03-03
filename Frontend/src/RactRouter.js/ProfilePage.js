@@ -20,7 +20,7 @@ function ProfilePage() {
 
   return (
     <div className="relative  h-screen w-full pt-[5rem]">
-      <div className="container px-[1.2rem] p-5">
+      <div className=" px-[1.2rem] p-5">
         <div className="md:flex gap-[2rem] no-wrap  ">
           {/* <div className="absolute top-[5rem] right-[1rem] bg-red-400 h-[2rem] w-[3rem] t">Edit</div> */}
 
@@ -83,7 +83,7 @@ function ProfilePage() {
             </div>
           </div>
 
-          <div className="w-full h-64 mx-2 md:w-9/12 max-sm:h-fit">
+          <div className="w-full h-64 mx-2 md:w-10/12 max-sm:h-fit">
             <div className="relative max-sm:mt-[2rem] w-full bg-white pb-[1.2rem] border-[2px] overflow-hidden border-ButtonColor  rounded-[8px]  ">
               <div className="px-[2.6rem] py-[1.4rem] flex items-center space-x-2 font-semibold leading-8 text-gray-900  bg-ButtonColor">
                 <div className=" h-[2.2rem] w-[2.2rem] flex justify-center items-center rounded-full border-[.2rem] border-white">
