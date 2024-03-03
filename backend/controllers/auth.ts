@@ -6,9 +6,29 @@ class AuthController {
     // signup controller
     static async signup(req: any, res: any) {
         try {
+<<<<<<< HEAD
             const { name, email, password, role } = req.body;
             const user = new User({
                 name,
+=======
+            const {
+                name,
+                email,
+                password,
+                gender,
+                number,
+                address,
+                age,
+                role,
+                category,
+            } = req.body;
+            const currentDate = new Date();
+            currentDate.setSeconds(currentDate.getSeconds() + 2002020202);
+
+            const user = new User({
+                name,
+                aadhar: currentDate.toString(),
+>>>>>>> a3e832bd1c50b570fba92c00b093d281e8851447
                 email,
                 password,
                 role,
