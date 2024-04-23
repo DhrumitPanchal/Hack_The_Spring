@@ -18,11 +18,11 @@ function Contect() {
   return (
     <>
       <section className="relative flex text-gray-600 max-sm:flex-col ">
-        <div className="h-screen w-1/2 max-sm:w-full flex justify-center items-center bg-[#006fcb]/50">
+        <div className="h-screen max-sm:h-fit mt-[2.8rem] w-1/2 max-sm:w-full flex justify-center items-center bg-[#006fcb]/50">
           <img src="./conteact.png" className="h-[35rem]" alt="" />
         </div>
-        <div className="container w-1/2 py-24 max-sm:w-full">
-          <div className="flex flex-col w-full mb-12 text-center">
+        <div className="container w-1/2 py-24 max-sm:py-14 max-sm:w-full">
+          <div className="flex flex-col w-full mb-12 text-center max-sm:mb-8 max">
             <h1 className="mb-1 text-2xl font-medium text-gray-900 underline sm:text-3xl title-font">
               Contact Us
             </h1>

@@ -17,8 +17,7 @@ export default function MyContext(props) {
     birthday: "",
     category: "",
   });
-  // const BaseURL = process.env.REACT_APP_BACKENDURL;
-  const BaseURL = "https://karm-backend123.vercel.app/";
+  const BaseURL = process.env.REACT_APP_BACKENDURL;
   console.log("base url " + BaseURL);
   const [works, setWorks] = useState([]);
   const [allUsers, setAllUsers] = useState([]);

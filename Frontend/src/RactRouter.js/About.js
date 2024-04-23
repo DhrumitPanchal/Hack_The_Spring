@@ -58,7 +58,7 @@ function About() {
         </p>
         <div className="px-[6rem] max-sm:px-[1rem] w-full flex flex-col items-center gap-[4rem]">
           <div className="w-full flex max-sm:flex-col justify-between items-center gap-[4rem]">
-            <div className="relative flex justify-center items-center h-[30rem] w-[29rem] max-sm:w-full">
+            <div className="relative flex justify-center items-center h-[30rem] max-sm:h-[26.4rem] w-[29rem] max-sm:w-full">
               <div className="overflow-hidden absolute top-0 right-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem] rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="/Indian Construction Workers.jpeg"
@@ -111,7 +111,7 @@ function About() {
               <img src="./img2.jpg" alt="" className="w-full h-full " />
             </div> */}
 
-            <div className="relative flex justify-center items-center h-[30rem] w-[29rem] max-sm:w-full">
+            <div className="relative flex justify-center items-center h-[30rem] w-[29rem] max-sm:h-[26.4rem] max-sm:w-full">
               <div className="overflow-hidden absolute top-0 right-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem]  rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="./img2.jpg"
