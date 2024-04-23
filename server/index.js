@@ -13,7 +13,9 @@ app.use(express.json());
 app.use("/auth", UserRouter);
 app.use("/work", WorkRouter);
 app.use("/contact", ContactRouter);
-
+app.get("/", (req, res) => {
+  res.send("api is ruing...");
+});
 const mongoDBURL = process.env.MONGODBURL;
 const PORT = process.env.PORT;
 try {
