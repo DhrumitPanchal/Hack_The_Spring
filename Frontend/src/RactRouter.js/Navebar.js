@@ -31,10 +31,10 @@ function Navebar() {
           >
             <FaTimes
               onClick={() => setMenuopen(!menuopen)}
-              className="absolute top-4 hidden max-sm:block right-4 text-[2rem] text-black"
+              className="absolute top-6 hidden max-sm:block right-6 text-[2rem] text-black"
             />
             <div className="flex max-sm:flex-col max-sm:gap-[1rem] max-sm:text-center text-black font-bold ">
-              <li className="px-3">
+              <li onClick={() => setMenuopen(false)} className="px-3">
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/"}
@@ -42,7 +42,7 @@ function Navebar() {
                   home
                 </NavLink>
               </li>
-              <li className="px-3">
+              <li onClick={() => setMenuopen(false)} className="px-3">
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/about"}
@@ -50,7 +50,7 @@ function Navebar() {
                   about us
                 </NavLink>
               </li>
-              <li className="px-3">
+              <li onClick={() => setMenuopen(false)} className="px-3">
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/contact"}
@@ -58,7 +58,7 @@ function Navebar() {
                   contect
                 </NavLink>
               </li>
-              <li className="px-3">
+              <li onClick={() => setMenuopen(false)} className="px-3">
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/work"}
@@ -66,7 +66,7 @@ function Navebar() {
                   get work
                 </NavLink>
               </li>
-              <li className="px-3">
+              <li onClick={() => setMenuopen(false)} className="px-3">
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/addWork"}
@@ -74,7 +74,7 @@ function Navebar() {
                   add work
                 </NavLink>
               </li>
-              <li className="px-3">
+              <li onClick={() => setMenuopen(false)} className="px-3">
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/workers"}

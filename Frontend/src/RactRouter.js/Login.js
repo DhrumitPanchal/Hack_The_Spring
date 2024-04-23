@@ -27,7 +27,7 @@ function Login() {
       <section className="flex pt-[2rem] bg-slate-100 justify-center items-center h-screen">
         <div class=" flex items-center justify-center px-5 py-5">
           <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-[0_4px_7px_rgba(0,0,0,0.4)] w-full overflow-hidden">
-            <div class="md:flex w-[60rem]">
+            <div class="md:flex w-[60rem] max-sm:w-[30rem]">
               <div class="hidden md:block w-1/2 bg-ButtonColor py-10 px-10">
                 <svg
                   id="a87032b8-5b37-4b7e-a4d9-4dbfbe394641"
