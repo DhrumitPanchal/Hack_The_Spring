@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 // import { FaMessage, FaPen } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import { Context } from "./Context";
 function ProfilePage() {
@@ -8,7 +10,8 @@ function ProfilePage() {
   const [userWorker, setUserWorker] = useState(false);
   const [data, setData] = useState({});
 
-  const { user, setUser } = useContext(Context);
+  const { user, setUser, updateUserDetails } = useContext(Context);
+  const navigate = useNavigate();
 
   const handelInput = (event) => {
     if (proEditable) {
@@ -16,6 +19,11 @@ function ProfilePage() {
       const value = event.target.value;
       setUser({ ...user, [name]: value });
     }
+  };
+
+  const logout = () => {
+    Cookies.remove("accessToken");
+    navigate("/login");
   };
 
   return (
@@ -85,13 +93,22 @@ function ProfilePage() {
 
           <div className="w-full h-64 mx-2 md:w-10/12 max-sm:h-fit">
             <div className="relative max-sm:mt-[2rem] w-full bg-white pb-[1.2rem] border-[2px] overflow-hidden border-ButtonColor  rounded-[8px]  ">
-              <div className="px-[2.6rem] py-[1.4rem] flex items-center space-x-2 font-semibold leading-8 text-gray-900  bg-ButtonColor">
-                <div className=" h-[2.2rem] w-[2.2rem] flex justify-center items-center rounded-full border-[.2rem] border-white">
-                  <FaRegUser className="text-[1.1rem] text-white" />
+              <div className="px-[2.6rem] py-[1.4rem] flex items-center justify-between space-x-2 font-semibold leading-8 text-gray-900  bg-ButtonColor">
+                <div className="flex gap-[1rem]">
+                  <div className=" h-[2.2rem] w-[2.2rem] flex justify-center items-center rounded-full border-[.2rem] border-white">
+                    <FaRegUser className="text-[1.1rem] text-white" />
+                  </div>
+                  <span className="tracking-wide text-[2rem] text-white">
+                    About
+                  </span>
                 </div>
-                <span className="tracking-wide text-[2rem] text-white">
-                  About
-                </span>
+
+                <div
+                  onClick={() => logout()}
+                  className="cursor-pointer  h-[2rem] w-[6rem] flex justify-center items-center rounded-[.2rem]  text-[1rem] text-primaryColor bg-white"
+                >
+                  Log Out
+                </div>
               </div>
               <div className="text-gray-700 mt-[1rem] pr-[6rem]  px-[2rem] pb-[2rem] ">
                 <div className="grid text-sm md:grid-cols-1">
@@ -174,7 +191,6 @@ function ProfilePage() {
                               id="male"
                               onClick={(e) => handelInput(e)}
                               value="male"
-                              checked
                               className="scale-[1.6]"
                             />
                           )}
@@ -202,9 +218,9 @@ function ProfilePage() {
                       <input
                         required
                         onChange={(e) => handelInput(e)}
-                        name="contact"
-                        value={user?.contact}
-                        type="text"
+                        name="contactNo"
+                        value={user?.contactNo}
+                        type="tel"
                         className="px-4 py-2 -ml-[12rem] border-b-2 max-sm:ml-0 border-ButtonColor/50 outline-none focus:border-ButtonColor transition-colors duration-300"
                         placeholder="Add contact number"
                       />
@@ -212,9 +228,9 @@ function ProfilePage() {
                       <input
                         required
                         onChange={(e) => handelInput(e)}
-                        name="contact"
-                        value={user?.contact}
-                        type="text"
+                        name="contactNo"
+                        value={user?.contactNo}
+                        type="tel"
                         className="px-4 py-2 -ml-[12rem] border-b-2 max-sm:ml-0 bg-transparent outline-none focus:border-ButtonColor transition-colors duration-300"
                         placeholder="Add contact number"
                         disabled
@@ -275,7 +291,10 @@ function ProfilePage() {
               <div className="absolute flex gap-[1rem] m-[1rem]  bottom-0 right-0 ">
                 {proEditable && (
                   <div
-                    onClick={() => setProEditable(!proEditable)}
+                    onClick={() => {
+                      updateUserDetails();
+                      setProEditable(!proEditable);
+                    }}
                     className="cursor-pointer flex justify-center items-center  h-[2rem] w-[4.6rem] rounded-[.3rem] bg-primaryColor text-white font-semibold"
                   >
                     Save

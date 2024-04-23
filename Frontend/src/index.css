@@ -28,43 +28,28 @@ code {
 }
 
 .active {
-  color: #006fcb;
-  font-size: 1.3rem;
+  color: rgb(0, 112, 204);
+  font-size: 1.2rem;
 }
 .active:hover {
   color: #e5233d;
 }
 
-.rating:not(:checked) > input {
-  appearance: none;
+.loader {
+  background-image: conic-gradiEnt(rgb(0, 112, 204) 300deg, white 300deg);
+  animation: anim 3s infinite linear;
 }
 
-.rating:not(:checked) > label {
-  float: right;
-  cursor: pointer;
-  font-size: 30px;
-  color: #666;
+@keyframes anim {
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
-.rating:not(:checked) > label:before {
-  content: "★";
-}
-
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-  color: #e58e09;
-}
-
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-  color: hsl(352, 79%, 52%);
-}
-
-.rating > input:checked ~ label {
-  color: #ffa723;
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 3.4vw;
+  }
 }
 
 @media screen and (max-width: 768px) {

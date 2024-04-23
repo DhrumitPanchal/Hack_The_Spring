@@ -1,39 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "./Context";
 import { FaSearch, FaAngleRight } from "react-icons/fa";
 import Footer from "./Footer";
-import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Workers() {
-  const [workers, setWorkers] = useState([]);
-  const [WorkersCategories, setWorkersCategories] = useState([]);
+  const { allUsers } = useContext(Context);
+  // const [workers, setWorkers] = useState([]);
+  // const [WorkersCategories, setWorkersCategories] = useState([]);
+  const navigate = useNavigate();
 
   const catagory = ["Painters", "Mechanics", "Plumbers", "Electricians"];
-  const worker = [
-    {
-      name: "dhrumit",
-      Email: "xyz123@gmail.com",
-      img_src:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudDbHeW2OobhX8E9fAY-ctpUAHeTNWfaqJA&usqp=CAU",
-    },
-    {
-      name: "vraj",
-      Email: "kkkkkkk123@gmail.com",
-      img_src:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudDbHeW2OobhX8E9fAY-ctpUAHeTNWfaqJA&usqp=CAU",
-    },
-    {
-      name: "xyz",
-      Email: "bnbnbb123@gmail.com",
-      img_src:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudDbHeW2OobhX8E9fAY-ctpUAHeTNWfaqJA&usqp=CAU",
-    },
-    {
-      name: "jay",
-      Email: "pqr123@gmail.com",
-      img_src:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudDbHeW2OobhX8E9fAY-ctpUAHeTNWfaqJA&usqp=CAU",
-    },
-  ];
 
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -48,7 +25,7 @@ function Workers() {
           <div className="flex h-[2.6rem] w-[25rem] rounded-[1.4rem] overflow-hidden bg-red-500">
             <input
               type="text"
-              className="pl-[1rem] outline-none w-4/5 text-[1.3rem] bg-slate-200"
+              className="pl-[1rem] outline-none w-4/5 text-[1.1rem] bg-slate-200"
               placeholder="search"
             />
             <div className="cursor-pointer flex justify-center items-center w-1/5 h-full text-[1rem] bg-primaryColor">
@@ -81,10 +58,13 @@ function Workers() {
         </div>
         <div className="pb-[4rem] mt-[2rem] min-h-[38rem] h-fit ">
           <div className="flex-wrap flex max-sm:flex-col max-sm:justify-start gap-[1.8rem]">
-            {worker?.length > 0 ? (
-              worker.map((worker, i) => {
+            {allUsers?.length > 0 ? (
+              allUsers.map((worker, i) => {
                 return (
-                  <div className="cursor-pointer flex justify-between items-center gap-[1.2rem] h-fit w-[30rem] p-[1.2rem] rounded-[1rem] border-[1px] border-slate-300 bg-white">
+                  <div
+                    onClick={() => navigate(`/profile/${worker._id}`)}
+                    className="cursor-pointer flex justify-between items-center gap-[1.2rem] h-fit w-[30rem] p-[1.2rem] rounded-[1rem] border-[1px] border-slate-300 bg-white"
+                  >
                     <div className="flex gap-[1rem]">
                       <img
                         alt=""
@@ -98,7 +78,7 @@ function Workers() {
                           {worker?.name}
                         </h2>
                         <h2 className="text-[.9rem] font-medium">
-                          {worker?.Email}
+                          {worker?.email}
                         </h2>
                       </div>
                     </div>

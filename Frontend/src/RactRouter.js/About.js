@@ -63,14 +63,14 @@ function About() {
                 <img
                   src="/Indian Construction Workers.jpeg"
                   alt=""
-                  className="h-full w-full hover:scale-[1.1] transition-all duration-300"
+                  className="h-full opacity-80 w-full hover:scale-[1.1] transition-all duration-300"
                 />
               </div>
               <div className="overflow-hidden absolute bottom-0 left-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem]  rounded-br-[4rem] rounded-tl-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="./img3.jpg"
                   alt=""
-                  className="h-full w-full hover:scale-[1.1] transition-all duration-300"
+                  className="h-full opacity-80 w-full hover:scale-[1.1] transition-all duration-300"
                 />
               </div>
               <div className=" absolute -mb-[8rem] -mr-[15rem] h-[6rem] w-[8rem] rounded-bl-[2rem] rounded-tr-[2rem] bg-primaryColor"></div>
@@ -116,14 +116,14 @@ function About() {
                 <img
                   src="./img2.jpg"
                   alt=""
-                  className="h-full w-full hover:scale-[1.1] transition-all duration-300"
+                  className="h-full opacity-80 w-full hover:scale-[1.1] transition-all duration-300"
                 />
               </div>
               <div className="overflow-hidden absolute bottom-0 left-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem]  rounded-br-[4rem] rounded-tl-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">
                 <img
                   src="./woodwork.jpeg"
                   alt=""
-                  className="h-full w-full hover:scale-[1.1] transition-all duration-300"
+                  className="h-full opacity-80 w-full hover:scale-[1.1] transition-all duration-300"
                 />
               </div>
               <div className=" absolute -mb-[8rem] -mr-[15rem] h-[6rem] w-[8rem] rounded-bl-[2rem] rounded-tr-[2rem] bg-primaryColor"></div>

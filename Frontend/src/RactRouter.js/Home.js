@@ -10,6 +10,7 @@ function Home() {
 
   return (
     <>
+
       <section className="w-full h-full text-black/70">
         <div
           className={

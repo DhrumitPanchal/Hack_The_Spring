@@ -88,30 +88,35 @@ function Footer() {
           </div>
 
           <div className="max-sm:mt-[2rem] flex flex-col">
-            <h2 className="ma text-[1.6rem] font-semibold mb-[.4rem]">
+            <h2 className="ma text-[1.3rem] font-semibold mb-[.4rem]">
               Quick links
             </h2>
-            <ul className="text-[1.2rem] capitalize">
+            <ul className="text-[1rem] capitalize">
               <li className="px-3">
                 <NavLink to={"/"}>home</NavLink>
               </li>
               <li className="px-3">
-                <NavLink className="text-[1.2rem]" to={"/about"}>
+                <NavLink className="text-[1rem]" to={"/about"}>
                   about us
                 </NavLink>
               </li>
               <li className="px-3">
-                <NavLink className="text-[1.2rem]" to={"/contect"}>
+                <NavLink className="text-[1rem]" to={"/contact"}>
                   contect
                 </NavLink>
               </li>
               <li className="px-3">
-                <NavLink className="text-[1.2rem]" to={"/work"}>
+                <NavLink className="text-[1rem]" to={"/work"}>
                   get work
                 </NavLink>
               </li>
               <li className="px-3">
-                <NavLink className="text-[1.3rem]" to={"/workers"}>
+                <NavLink className="text-[1rem]" to={"/addWork"}>
+                  add work
+                </NavLink>
+              </li>
+              <li className="px-3">
+                <NavLink className="text-[1rem]" to={"/workers"}>
                   Workers
                 </NavLink>
               </li>
@@ -119,24 +124,24 @@ function Footer() {
           </div>
 
           <div className="pr-[2rem]">
-            <h2 className="max-sm:mt-[2rem] text-[1.6rem] font-semibold mb-[.4rem]">
+            <h2 className="max-sm:mt-[2rem] text-[1.3rem] font-semibold mb-[.4rem]">
               Contect us
             </h2>
             <div className="flex flex-col gap-[.4rem]">
               <div className="flex gap-[1rem]">
-                <h2 className="text-[1.2rem] font-semibold capitalize">
+                <h2 className="text-[1rem] font-semibold capitalize">
                   Call us:
                 </h2>
                 <h3 className="text-[1.1rem]">+91 9662*******</h3>
               </div>
               <div className="flex gap-[1rem]">
-                <h2 className="text-[1.2rem] font-semibold capitalize">
+                <h2 className="text-[1rem] font-semibold capitalize">
                   email us:
                 </h2>
                 <h3 className="text-[1.1rem]">xyz123@gamil.com</h3>
               </div>
               <div className="flex gap-[1rem]">
-                <h2 className="text-[1.2rem] font-semibold capitalize">
+                <h2 className="text-[1rem] font-semibold capitalize">
                   whatsApp
                 </h2>
                 <h3 className="text-[1.1rem]">+91 9662*******</h3>

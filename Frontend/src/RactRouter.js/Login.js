@@ -244,7 +244,7 @@ function Login() {
                     <div class="flex -mx-3">
                       <div class="w-[33rem] px-3 mb-5">
                         <label for="" class="text-xs font-semibold px-1">
-                          User Name / Email
+                          User Email
                         </label>
                         <div class="flex">
                           <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -253,9 +253,9 @@ function Login() {
                           <input
                             required
                             onChange={(e) => heandalinput(e)}
-                            name="name"
-                            value={loginData.name}
-                            type="text"
+                            name="email"
+                            value={loginData.email}
+                            type="email"
                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-ButtonColor"
                             placeholder="John"
                           />
@@ -297,7 +297,7 @@ function Login() {
                         </span>
                         <button
                           onClick={() => {
-                            register(loginData);
+                            login(loginData.email, loginData.password);
                           }}
                           type="submit"
                           class="block w-full max-w-xs mx-auto bg-ButtonColor/70 hover:bg-ButtonColor focus:bg-ButtonColor text-white rounded-lg px-3 py-3 font-semibold"
