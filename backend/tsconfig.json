@@ -1,6 +1,0 @@
-{
-  "extends": "@ascen/corus-tsconfig",
-  "compilerOptions": {
-    "outDir": "build"
-  }
-}
