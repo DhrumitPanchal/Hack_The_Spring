@@ -1,7 +1,7 @@
 const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const { handleUpload } = require("../cloudinary");
 async function getAllUsers(req, res) {
   try {
     const allUsers = await User.find();
@@ -13,17 +13,20 @@ async function getAllUsers(req, res) {
 }
 
 async function handleUserRegister(req, res) {
-  const { name, email, password, role } = req.body;
-  if (!name || !email || !password || !role) {
-    return res.status(404).json({ msg: "invalid credentials" });
+  const { name, email, password, role, profilePic } = req.body;
+
+  if (!name || !email || !password || !role || !profilePic) {
+    return res.status(404).json({ msg: "all details are required" });
   }
   const user = await User.findOne({ email });
   if (user) return res.status(400).json({ msg: "user already exist" });
   const HashPassword = await bcrypt.hash(password, 10);
+
   try {
     const user = await User.create({
       name,
       email,
+      profilePic,
       role,
       password: HashPassword,
     });
@@ -38,10 +41,20 @@ async function handleUserRegister(req, res) {
     };
     res.status(200).json(newObject);
   } catch (error) {
-    return res.status(500).json({ msg: "Internal server error" });
+    return res.status(500).json({ error, msg: "Internal server error" });
   }
 }
 
+async function handelUpload(req, res) {
+  try {
+    const b64 = Buffer.from(req?.file?.buffer).toString("base64");
+    let dataURI = "data:" + req?.file?.mimetype + ";base64," + b64;
+    const cldRes = await handleUpload(dataURI);
+    res.status(200).json({ ProfilePicUrl: cldRes.url });
+  } catch (error) {
+    return res.status(500).json({ msg: "Internal server error" });
+  }
+}
 async function handleUserLogin(req, res) {
   try {
     const { email, password } = req.body;
@@ -144,4 +157,5 @@ module.exports = {
   getAllUsers,
   handelJwtTokenBasedLogin,
   handelAdminAccess,
+  handelUpload,
 };

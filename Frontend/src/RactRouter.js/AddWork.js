@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { FaSearch, FaAngleRight } from "react-icons/fa";
-
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 import Footer from "./Footer";
 import { Context } from "./Context";
+
 function AddWork() {
   const [openWork, setOpenWork] = useState(false);
   const [openCreateWork, setOpenCreateWork] = useState(false);
@@ -77,10 +77,8 @@ function AddWork() {
 
   const filterApplicants = (work) => {
     const filteredWorkers = allUsers.filter((item) =>
-      work.applicant.some((u) => {
-        if (u?.applicantId === item._id) {
-          return user;
-        }
+      work.applicant.some((e) => {
+        return e?.applicantId === item._id && user;
       })
     );
     console.log("filtered applicants : " + filterApplicants);
@@ -281,7 +279,7 @@ function AddWork() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className=" overflow-hidden flex max-sm:flex-col max-sm:gap-0 gap-[1.4rem] rounded-[.8rem] h-[30rem] max-sm:h-[40rem] w-[60rem] max-sm:w-[75%]  bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
+            className=" overflow-hidden flex max-sm:flex-col max-sm:gap-0 gap-[1.4rem] rounded-[.8rem] h-[25rem] max-sm:h-[40rem] w-[60rem] max-sm:w-[75%]  bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
           >
             <div className="flex relative flex-col gap-[.4rem] w-1/2 max-sm:h-full  max-sm:w-full p-[1.4rem] max-sm:px-[1rem] pr-[.8rem]">
               <div className="flex gap-[1rem] w-full">
@@ -359,34 +357,36 @@ function AddWork() {
                 </button>
               </div>
             </div>
-
-            <div className="flex relative flex-col gap-[.4rem] w-1/2 max-sm:w-full p-[1.4rem] max-sm:px-[1rem] pr-[.8rem]">
+            <div className="py-[2rem] flex justify-center items-center h-full  w-fit">
+              <div className="h-full w-[.2rem]   bg-primaryColor"></div>
+            </div>
+            <div className="flex relative h-full flex-col gap-[.4rem] w-1/2 max-sm:w-full p-[1.4rem] max-sm:px-[1rem] pr-[1.4rem]">
               <h2 className="capitalize text-[1.4rem] font-semibold text-primaryColor">
                 applicants
               </h2>
-              {applicants.map((e) => (
-                <div
-                  onClick={() => navigate(`/profile/${e._id}`)}
-                  className="cursor-pointer flex justify-between items-center gap-[1.2rem] h-fit w-full px-[.8rem] py-[.4rem] rounded-[.6rem] border-[1px] border-slate-400 bg-white"
-                >
-                  <div className="flex gap-[1rem]">
-                    <img
-                      alt=""
-                      src={
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudDbHeW2OobhX8E9fAY-ctpUAHeTNWfaqJA&usqp=CAU"
-                      }
-                      className="h-[2.4rem] w-[2.4rem] rounded-full bg-black"
-                    />
-                    <div>
-                      <h2 className="text-[1rem] font-semibold">{e?.name}</h2>
-                      <h2 className="text-[.7rem] font-medium">{e?.email}</h2>
+              <div className="w-full h-full overflow-y-auto scrollbar-thumb-blue-500 pr-[1rem]">
+                {applicants.map((e) => (
+                  <div
+                    onClick={() => navigate(`/profile/${e._id}`)}
+                    className="cursor-pointer mt-[.4rem] flex justify-between items-center gap-[1.2rem] h-fit w-full px-[.8rem] py-[.4rem] rounded-[.6rem] border-[1px] border-slate-400 bg-white"
+                  >
+                    <div className="flex gap-[1rem]">
+                      <img
+                        alt=""
+                        src={e?.profilePic}
+                        className="h-[2.4rem] w-[2.4rem] rounded-full bg-black"
+                      />
+                      <div>
+                        <h2 className="text-[1rem] font-semibold">{e?.name}</h2>
+                        <h2 className="text-[.7rem] font-medium">{e?.email}</h2>
+                      </div>
+                    </div>
+                    <div className="flex justify-center items-center rounded-full h-[2rem] w-[2rem] ">
+                      <FaAngleRight className="text-[1rem] text-slate-300" />
                     </div>
                   </div>
-                  <div className="flex justify-center items-center rounded-full h-[2rem] w-[2rem] ">
-                    <FaAngleRight className="text-[1rem] text-slate-300" />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -410,7 +410,10 @@ function AddWork() {
         <div className="flex flex-wrap gap-[1rem] max-sm:gap-[1.4rem]">
           {allWork.map((work) => {
             return (
-              <div className="overflow-hidden p-[.8rem] flex rounded-[.8rem] rounded-t-none border-t-[3px] border-primaryColor gap-[1rem] h-full w-fit max-sm:w-full bg-primaryColor/10">
+              <div
+                id="workCard"
+                className="overflow-hidden p-[.8rem] flex rounded-[.8rem] rounded-t-none border-t-[3px] border-primaryColor gap-[1rem] h-full w-fit max-sm:w-full bg-primaryColor/10"
+              >
                 <div className="flex flex-col gap-[.8rem] justify-between items-start w-[21rem] max-sm:w-full px-[1rem] pb-[.5rem]">
                   <div className="flex flex-col">
                     <h2 className="text-[1.3rem] mt-[.6rem] font-bold text-primaryColor">
@@ -441,6 +444,7 @@ function AddWork() {
                     </h2>
                   </div>
                   <button
+                    id="workViewButton"
                     onClick={() => {
                       setOpenWork(!openWork);
                       setOpenWorkData(work);

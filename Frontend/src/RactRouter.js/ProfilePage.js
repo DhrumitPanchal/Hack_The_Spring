@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 // import { FaMessage, FaPen } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 import { Context } from "./Context";
@@ -25,7 +25,7 @@ function ProfilePage() {
     Cookies.remove("accessToken");
     navigate("/login");
   };
-
+  console.log("profile url : " + user?.profilePic);
   return (
     <div className="relative  h-screen w-full pt-[5rem]">
       <div className=" px-[1.2rem] p-5">
@@ -36,7 +36,7 @@ function ProfilePage() {
             <div className="">
               <div className="relative z-20 mx-auto h-[17rem]  w-full flex justify-center items-center">
                 <img
-                  src="./persone.png"
+                  src={user?.profilePic}
                   className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor  rounded-full "
                   alt=""
                   srcset=""

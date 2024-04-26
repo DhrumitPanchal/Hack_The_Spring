@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { GiSkills } from "react-icons/gi";
 import { FaBriefcase } from "react-icons/fa";
@@ -15,9 +15,7 @@ function Home() {
           }
         >
           <div className=" absolute z-[2] -left-[10rem] max-sm:-left-[110px] -top-[6rem] max-sm:-top-[290px] -rotate-[25deg] h-screen w-[60rem] max-sm:h-[600px] max-sm:w-[500px] bg-ButtonColor"></div>
-          {/* <div className="absolute z-[1] top-[2rem] left-0 w-full ">
-            <img src={"/home_img.png"} className="w-full h-full" />
-          </div> */}
+
           <div className="relative z-20 -top-[1.2rem] ">
             <h3 className="mb-[.4rem] text-[2.2rem] font-bold">
               <span className="text-white">क</span>RM
@@ -30,12 +28,12 @@ function Home() {
 
             <NavLink to={"/Login"}>
               <div className="w-fit flex justify-center items-center py-[.4rem] px-[1rem] rounded-[.3rem] text-[1.2rem] font-semibold capitalize bg-white text-primaryColor   ">
-                get startded
+                get started
               </div>
             </NavLink>
           </div>
           <div className="h-[34rem] max-sm:h-[30rem]">
-            <img src="/homepage1.png" className="w-full h-full" />
+            <img src="/homepage1.png" className="w-full h-full" alt="" />
           </div>
         </div>
 
@@ -82,7 +80,7 @@ function Home() {
               Ongoing Campaigns
             </h2>
             <h1 className="text-[1.4rem] font-semibold">
-              fight adainst poverty to succeed in life
+              fight against poverty to succeed in life
             </h1>
           </div>
           {/* ----card------ */}
@@ -134,7 +132,6 @@ function Home() {
               </p>
             </div>
           </div>
-          {/* ----card------ */}
         </div>
 
         <Footer />

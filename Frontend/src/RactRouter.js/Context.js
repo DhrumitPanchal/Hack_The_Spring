@@ -10,6 +10,7 @@ export default function MyContext(props) {
     userId: "",
     name: "",
     email: "",
+    profilePic: "",
     contactNo: null,
     gender: "",
     address: "",
@@ -17,32 +18,37 @@ export default function MyContext(props) {
     birthday: "",
     category: "",
   });
+  const [profilePic, setProfilePic] = useState(null);
+  const formData = new FormData();
   const BaseURL = process.env.REACT_APP_BACKENDURL;
-  console.log("base url " + BaseURL);
   const [works, setWorks] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const navigate = useNavigate();
 
   const register = async (name, email, password, role) => {
     try {
+      const response = await axios.post(`${BaseURL}auth/upload`, formData);
+
       const { data } = await axios.post(`${BaseURL}auth/register`, {
-        name: name,
-        email: email,
-        role: role,
-        password: password,
+        name,
+        email,
+        role,
+        password,
+        profilePic: response?.data?.ProfilePicUrl,
       });
 
       setUser({
-        userId: data.user._id,
-        name: data.user.name,
-        email: data.user.email,
-        role: data.user.role,
+        userId: data?.user?._id,
+        name: data?.user?.name,
+        email: data?.user?.email,
+        role: data?.user?.role,
+        profilePic: data?.user?.profilePic,
       });
       Cookies.set("accessToken", data.access_Token, { expires: 365 });
       toast.success("sign in successfully");
       navigate("/");
     } catch ({ response }) {
-      toast.error(response.data.msg);
+      toast.error(response?.data?.msg);
     }
   };
 
@@ -52,12 +58,12 @@ export default function MyContext(props) {
         email,
         password,
       });
-
       setUser({
-        userId: data.user._id,
-        name: data.user.name,
-        email: data.user.email,
-        role: data.user.role,
+        userId: data?.user?._id,
+        name: data?.user?.name,
+        email: data?.user?.email,
+        role: data?.user?.role,
+        profilePic: data?.user?.profilePic,
       });
       Cookies.set("accessToken", data.access_Token, { expires: 365 });
       toast.success("sign in successfully");
@@ -77,16 +83,17 @@ export default function MyContext(props) {
         });
 
         setUser({
-          userId: data.user._id,
-          name: data.user.name,
-          email: data.user.email,
-          role: data.user.role,
-          contactNo: data.user.contactNo,
-          gender: data.user.gender,
-          address: data.user.address,
-          userRole: data.user.userRole,
-          birthday: data.user.birthday,
-          category: data.user.category,
+          userId: data?.user?._id,
+          name: data?.user?.name,
+          email: data?.user?.email,
+          profilePic: data?.user?.profilePic,
+          role: data?.user?.role,
+          contactNo: data?.user?.contactNo,
+          gender: data?.user?.gender,
+          address: data?.user?.address,
+          userRole: data?.user?.userRole,
+          birthday: data?.user?.birthday,
+          category: data?.user?.category,
         });
       } else {
         navigate("/login");
@@ -171,6 +178,26 @@ export default function MyContext(props) {
     }
   };
 
+  const handelApplyForWork = async (WorkID) => {
+    try {
+      const { data } = await axios.put(`${BaseURL}work/work/apply`, {
+        id: WorkID,
+        data: { applicantId: user.userId },
+      });
+
+      await works.map((item) => {
+        if (item._id === WorkID) {
+          return { ...item, applicant: data?.updateWork?.applicant };
+        }
+        return item;
+      });
+      handelGetAllWorks();
+      toast.success(data.msg);
+    } catch ({ response }) {
+      toast.error(response.data.msg);
+    }
+  };
+
   const handelDeleteWork = async (ID) => {
     try {
       const { data } = await axios.delete(`${BaseURL}work/work`, {
@@ -187,7 +214,7 @@ export default function MyContext(props) {
 
   const handelSendMessage = async (Data) => {
     try {
-      const { data } = await axios.post(`${BaseURL}contact/message`);
+      const { data } = await axios.post(`${BaseURL}contact/message`, Data);
       toast.success(data.msg);
     } catch ({ response }) {
       toast.error(response.data.msg);
@@ -209,11 +236,15 @@ export default function MyContext(props) {
         register,
         login,
         works,
+        profilePic,
+        formData,
+        setProfilePic,
         setWorks,
         updateUserDetails,
         handelAddWork,
         handelGetAllWorks,
         handelUpdateWork,
+        handelApplyForWork,
         handelDeleteWork,
         handelSendMessage,
       }}

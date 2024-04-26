@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { Context } from "./Context";
 
@@ -13,14 +13,21 @@ function Login() {
     gender: "",
     Contect: "",
   });
-  const { register, login } = useContext(Context);
-
+  const { register, login, profilePic, setProfilePic, formData } =
+    useContext(Context);
+  const heandalFileInput = (e) => {
+    const file = e.target.files[0];
+    formData.append("profilePic", file);
+  };
   const heandalinput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
     setLoginData({ ...loginData, [name]: value });
   };
+  useEffect(() => {
+    console.log(loginData?.profilePic);
+  }, [loginData]);
 
   return (
     <>
@@ -310,7 +317,7 @@ function Login() {
                 </div>
               ) : (
                 <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
-                  <div class="text-center mb-10">
+                  <div class="text-center mb-6">
                     <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
                     <p>Enter your information to register</p>
                   </div>
@@ -375,7 +382,7 @@ function Login() {
                       </div>
                     </div>
                     <div class="flex -mx-3">
-                      <div class="w-full px-3 mb-12">
+                      <div class="w-full px-3 mb-5">
                         <label for="" class="text-xs font-semibold px-1">
                           Password
                         </label>
@@ -390,6 +397,23 @@ function Login() {
                             type="text"
                             class="w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-ButtonColor"
                             placeholder="************"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex -mx-3">
+                      <div class="w-full px-3 mb-5">
+                        <label for="" class="text-xs font-semibold px-1">
+                          profile image
+                        </label>
+                        <div class="flex">
+                          <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                          </div>
+                          <input
+                            onChange={(e) => heandalFileInput(e)}
+                            type="file"
+                            class="w-full -ml-10 pl-4 pr-3 py-[.4rem] rounded-lg border-2 border-gray-200 outline-none focus:border-ButtonColor"
                           />
                         </div>
                       </div>

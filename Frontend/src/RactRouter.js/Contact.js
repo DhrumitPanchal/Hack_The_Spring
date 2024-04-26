@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
-import Navebar from "./Navebar";
 import Footer from "./Footer";
 import { Context } from "./Context";
-function Contect() {
+function Contact() {
   const { handelSendMessage } = useContext(Context);
   const [formData, setFormData] = useState({
     name: "",
@@ -19,7 +18,7 @@ function Contect() {
     <>
       <section className="relative flex text-gray-600 max-sm:flex-col ">
         <div className="h-screen max-sm:h-fit mt-[2.8rem] w-1/2 max-sm:w-full flex justify-center items-center bg-[#006fcb]/50">
-          <img src="./conteact.png" className="h-[35rem]" alt="" />
+          <img src="./contact.png" className="h-[35rem]" alt="" />
         </div>
         <div className="container w-1/2 py-24 max-sm:py-14 max-sm:w-full">
           <div className="flex flex-col w-full mb-12 text-center max-sm:mb-8 max">
@@ -88,4 +87,4 @@ function Contect() {
   );
 }
 
-export default Contect;
+export default Contact;

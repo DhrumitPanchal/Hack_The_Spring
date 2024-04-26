@@ -1,24 +1,9 @@
 import React from "react";
-import Navebar from "./Navebar";
 import Footer from "./Footer";
 
 function About() {
   return (
     <section className="w-full text-black">
-      {/* <div>
-    <div className='m-[3rem] h-fit'>
-      <div className='top-0  h-[33rem] max-sm:h-[20rem] w-[88rem] max-sm:w-[30rem] flex items-center  bg-blue-950 text-white'>
-      <div className='ml-[4rem] max-sm:ml-0 max-sm:p-[1.2rem] w-[30rem] max-sm:w-full'>
-        <h2 className='text-[2rem] font-bold capitalize'>about us</h2>
-        <p>Welcome to कRM where we bridge the gap between wage workers and clients. Our platform is your go-to destination for quick and convenient cash work opportunities. Whether you're a skilled worker looking for gigs or a client in need of reliable help, we've got you covered.</p>
-        </div>
-      </div>
-      <div className='home_img absolute top-[12rem] max-sm:top-[30rem] right-[3rem] z-10  h-[33rem] w-[55rem] max-sm:h-[20rem] max-sm:w-[30rem]'>
-    <img src="./img1.1.jpg" alt="" srcset="" className='w-full h-full '/>
-      </div>
-     </div>
-    </div> */}
-
       <div className="h-screen max-sm:h-fit w-full flex justify-between max-sm:justify-center max-sm:flex-col gap-[5rem] px-[1rem]">
         <div className="w-[45%] pt-[14rem] ml-[6rem] max-sm:w-full max-sm:ml-0 max-sm:pt-[8rem] max-sm:px-[2rem]">
           <h2 className=" text-[2.6rem] text-primaryColor font-bold  capitalize">
@@ -31,7 +16,7 @@ function About() {
             looking for gigs or a client in need of reliable help, we've
             got you covered.
           </p>
-          <a href="#readmore">
+          <a href="#readMore">
             <div className="cursor-pointer mt-[1.6rem] flex justify-center items-center h-[2.4rem] w-[10rem] text-[1.2rem] rounded-[.4rem] font-medium bg-primaryColor text-white ">
               Read More
             </div>
@@ -50,7 +35,7 @@ function About() {
       </div>
 
       {/* ------------ */}
-      <div id="readmore" className="m-[3rem] mt-[12rem] max-sm:mt-0 mb-[6rem]">
+      <div id="readMore" className="m-[3rem] mt-[12rem] max-sm:mt-0 mb-[6rem]">
         <p className="mx-[20rem] my-[4rem] max-sm:mx-[2rem] max-sm:mt-[8rem] text-center">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
           molestiae incidunt earum delectus, minus debitis atque? Quibusdam
@@ -107,9 +92,6 @@ function About() {
                 trusted and efficient platform."
               </p>
             </div>
-            {/* <div className="h-[30rem] w-[40rem] max-sm:w-full bg-slate-400">
-              <img src="./img2.jpg" alt="" className="w-full h-full " />
-            </div> */}
 
             <div className="relative flex justify-center items-center h-[30rem] w-[29rem] max-sm:h-[26.4rem] max-sm:w-full">
               <div className="overflow-hidden absolute top-0 right-0 h-[14rem] w-[16rem] max-sm:h-[12rem] max-sm:w-[14rem]  rounded-tl-[4rem] rounded-br-[4rem] shadow-[0px_10px_30px] shadow-primaryColor/60">

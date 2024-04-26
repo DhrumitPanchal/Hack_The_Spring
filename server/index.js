@@ -4,6 +4,8 @@ const cors = require("cors");
 const UserRouter = require("./routes/userRoute");
 const WorkRouter = require("./routes/workRouter");
 const ContactRouter = require("./routes/contactRoute");
+const upload = require("./middleware/multer");
+const { handleUpload } = require("./cloudinary");
 require("dotenv").config();
 const app = express();
 app.use(cors());
@@ -16,6 +18,7 @@ app.use("/contact", ContactRouter);
 app.get("/", (req, res) => {
   res.send("api is ruing...");
 });
+
 const mongoDBURL = process.env.MONGODBURL;
 const PORT = process.env.PORT;
 try {

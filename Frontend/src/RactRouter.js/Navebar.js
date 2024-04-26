@@ -63,10 +63,14 @@ function Navebar() {
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/work"}
                 >
-                  get work
+                  <h2 id="GetWork"> get work</h2>
                 </NavLink>
               </li>
-              <li onClick={() => setMenuopen(false)} className="px-3">
+              <li
+                id="AddWork"
+                onClick={() => setMenuopen(false)}
+                className="px-3"
+              >
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/addWork"}
@@ -74,7 +78,11 @@ function Navebar() {
                   add work
                 </NavLink>
               </li>
-              <li onClick={() => setMenuopen(false)} className="px-3">
+              <li
+                id="Workers"
+                onClick={() => setMenuopen(false)}
+                className="px-3"
+              >
                 <NavLink
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/workers"}
@@ -91,7 +99,7 @@ function Navebar() {
               <NavLink to={"/profile"}>
                 <div>
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudDbHeW2OobhX8E9fAY-ctpUAHeTNWfaqJA&usqp=CAU"
+                    src={user?.profilePic}
                     className="w-[2.2rem] h-[2.2rem]  rounded-full bg-black"
                   />
                 </div>

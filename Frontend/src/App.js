@@ -7,11 +7,12 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+
 import Loading from "./RactRouter.js/Loading";
 const Home = lazy(() => import("./RactRouter.js/Home"));
 const About = lazy(() => import("./RactRouter.js/About"));
 const Work = lazy(() => import("./RactRouter.js/Work"));
-const Contect = lazy(() => import("./RactRouter.js/Contect"));
+const Contact = lazy(() => import("./RactRouter.js/Contact"));
 const ErrorPage = lazy(() => import("./RactRouter.js/ErrorPage"));
 const Navebar = lazy(() => import("./RactRouter.js/Navebar"));
 const Footer = lazy(() => import("./RactRouter.js/Footer"));
@@ -34,7 +35,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/work" element={<Work />} />
-              <Route path="/contact" element={<Contect />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/profile/:id" element={<ViewUserProfile />} />
               <Route path="/Login" element={<Login />} />

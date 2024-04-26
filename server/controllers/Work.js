@@ -29,7 +29,7 @@ async function handelAddWork(req, res) {
 
 async function handelUpdateWork(req, res) {
   const { id, data } = req.body;
-  console.log(id, data )
+  console.log(id, data);
   if (!id || !data) return res.json({ msg: "work id and data is required" });
   try {
     const findWork = await Work.findById(id);
@@ -42,6 +42,39 @@ async function handelUpdateWork(req, res) {
     res.status(200).json({ updatedWork, msg: "work updated successfully" });
   } catch (error) {
     return res.status(500).json({ error, msg: "Internal server error" });
+  }
+}
+
+async function handelApplyForWork(req, res) {
+  const { id, data } = req.body;
+
+  if (!id || !data) {
+    return res.json({ msg: "work id and data is required" });
+  }
+  try {
+    const findWork = await Work.findById(id);
+
+    if (!findWork) {
+      return res.status(404).json({ msg: "work not found" });
+    }
+
+    const checkAlreadyApplied = findWork?.applicant?.filter(
+      (work) => work?.applicantId == data?.applicantId
+    );
+
+    if (checkAlreadyApplied.length > 0) {
+      return res.status(400).json({ msg: "you have already Applied" });
+    }
+
+    const updateWork = await Work.findByIdAndUpdate(id, {
+      applicant: [...findWork.applicant, { applicantId: data?.applicantId }],
+    });
+
+    return res.status(200).json({ updateWork, msg: "Applied successfully" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ errors: error.message, msg: "Internal server error" });
   }
 }
 
@@ -69,5 +102,6 @@ module.exports = {
   handelAddWork,
   handelGetAllWork,
   handelUpdateWork,
+  handelApplyForWork,
   handelDeleteWork,
 };

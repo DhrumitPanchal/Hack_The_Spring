@@ -10,6 +10,10 @@ const UserSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  profilePic: {
+    type: String,
+    required: true,
+  },
   role: {
     type: String,
     enum: ["client", "worker"],

@@ -1,21 +1,24 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect,  useContext } from "react";
 import Footer from "./Footer";
 import { Context } from "./Context";
 function Work() {
   const [openWork, setOpenWork] = useState(false);
   const [openWorkData, setOpenWorkData] = useState({});
-  const { handelAddWork, works, user, handelGetAllWorks, handelUpdateWork } =
-    useContext(Context);
-  const [allWork, setAllWork] = useState([]);
+  const { works, user, handelApplyForWork } = useContext(Context);
+  const [allWork, setAllWork] = useState(works);
+
+  const applyForWork = () => {
+    handelApplyForWork(openWorkData?._id);
+    return setOpenWork(false);
+  };
 
   useEffect(() => {
     setAllWork(works);
-  }, [works, handelAddWork, handelGetAllWorks]);
-  console.log(openWorkData);
+  }, [works]);
   return (
     <section className="relative w-full h-full text-black">
       {/* -------- popup work ------  */}
-      
+
       {openWork && (
         <div
           onClick={() => setOpenWork(!openWork)}
@@ -79,31 +82,12 @@ function Work() {
               {openWorkData.applicant.some(
                 (item) => item?.applicantId === user.userId
               ) ? (
-                <button
-                  onClick={() => {
-                    handelUpdateWork(openWorkData?._id, {
-                      applicant: [
-                        ...openWorkData.applicant,
-                        { applicantId: user.userId },
-                      ],
-                    });
-                    setOpenWork(!openWork);
-                  }}
-                  className="absolute rounded-[.5rem] bottom-[1rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor/20"
-                >
+                <button className="absolute rounded-[.5rem] bottom-[1rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor/20">
                   Applied
                 </button>
               ) : (
                 <button
-                  onClick={() => {
-                    handelUpdateWork(openWorkData?._id, {
-                      applicant: [
-                        ...openWorkData.applicant,
-                        { applicantId: user.userId },
-                      ],
-                    });
-                    setOpenWork(!openWork);
-                  }}
+                  onClick={() => applyForWork()}
                   className="absolute rounded-[.5rem] bottom-[1rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor"
                 >
                   Apply
@@ -126,7 +110,10 @@ function Work() {
         <div className="flex flex-wrap gap-[1rem] max-sm:gap-[1.4rem]">
           {allWork.map((work) => {
             return (
-              <div className="overflow-hidden p-[.8rem] flex rounded-[.8rem] rounded-t-none border-t-[3px] border-primaryColor gap-[1rem] h-full w-fit max-sm:w-full bg-primaryColor/10">
+              <div
+                key={work?._id}
+                className="overflow-hidden p-[.8rem] flex rounded-[.8rem] rounded-t-none border-t-[3px] border-primaryColor gap-[1rem] h-full w-fit max-sm:w-full bg-primaryColor/10"
+              >
                 <div className="flex flex-col gap-[.8rem] justify-between items-start w-[21rem] max-sm:w-full px-[1rem] pb-[.5rem]">
                   <div className="flex flex-col">
                     <h2 className="text-[1.3rem] mt-[.6rem] font-bold text-primaryColor">
