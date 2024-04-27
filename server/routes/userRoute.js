@@ -6,7 +6,7 @@ const {
   handelJwtTokenBasedLogin,
   handelAdminAccess,
   handelUpdateUserDetails,
-  handelUpload
+  handelUpload,
 } = require("../controllers/Auth");
 const upload = require("../middleware/multer");
 const Router = express.Router();
@@ -18,7 +18,7 @@ Router.get("/auth", (req, res) => {
   res.json({ msg: "working" });
 });
 Router.post("/register", handleUserRegister);
-Router.post("/upload", upload.single("profilePic") ,handelUpload);
+Router.post("/upload", upload.single("profilePic"), handelUpload);
 Router.post("/login", handleUserLogin);
 Router.put("/update", handelUpdateUserDetails);
 Router.get("/getallusers", getAllUsers);

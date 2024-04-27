@@ -41,7 +41,9 @@ async function handleUserRegister(req, res) {
     };
     res.status(200).json(newObject);
   } catch (error) {
-    return res.status(500).json({ error, msg: "Internal server error" });
+    return res
+      .status(500)
+      .json({ error: error.message, msg: "Internal server error" });
   }
 }
 
@@ -52,7 +54,7 @@ async function handelUpload(req, res) {
     const cldRes = await handleUpload(dataURI);
     res.status(200).json({ ProfilePicUrl: cldRes.url });
   } catch (error) {
-    return res.status(500).json({ msg: "Internal server error" });
+    return res.status(500).json({ error: error, msg: "Internal server error" });
   }
 }
 async function handleUserLogin(req, res) {
