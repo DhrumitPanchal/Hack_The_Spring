@@ -47,7 +47,7 @@ function ProfilePage() {
               <div className="overflow-hidden image">
                 <img
                   className="w-full h-auto mx-auto"
-                  src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                  src={user?.profilePic}
                   alt=""
                 />
               </div>
