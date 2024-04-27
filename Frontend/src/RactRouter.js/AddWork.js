@@ -279,10 +279,10 @@ function AddWork() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className=" overflow-hidden flex max-sm:flex-col max-sm:gap-0 gap-[1.4rem] rounded-[.8rem] h-[25rem] max-sm:h-[40rem] w-[60rem] max-sm:w-[75%]  bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
+            className=" overflow-hidden max-sm:mt-[3rem] flex max-sm:flex-col max-sm:gap-0 gap-[1.4rem] rounded-[.8rem] h-[25rem] max-sm:h-[45rem] w-[60rem] max-sm:w-[85%]  bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
           >
-            <div className="flex relative flex-col gap-[.4rem] w-1/2 max-sm:h-full  max-sm:w-full p-[1.4rem] max-sm:px-[1rem] pr-[.8rem]">
-              <div className="flex gap-[1rem] w-full">
+            <div className="flex relative max-sm:h-[40rem] max-sm:border-b-[2px] max-sm:border-primaryColor flex-col gap-[.4rem] w-1/2  max-sm:w-full p-[1.4rem] max-sm:px-[1rem] pr-[.8rem]">
+              <div className="flex gap-[1rem] w-full h-fit">
                 <div className="flex flex-col">
                   <h2 className="capitalize text-[1.4rem] font-semibold text-primaryColor">
                     {openWorkData?.title}
@@ -357,35 +357,46 @@ function AddWork() {
                 </button>
               </div>
             </div>
-            <div className="py-[2rem] flex justify-center items-center h-full  w-fit">
-              <div className="h-full w-[.2rem]   bg-primaryColor"></div>
+            <div className="max-sm:hidden py-[2rem] flex justify-center items-center h-full  w-fit">
+              <div className="h-full w-[.2rem] bg-primaryColor"></div>
             </div>
-            <div className="flex relative h-full flex-col gap-[.4rem] w-1/2 max-sm:w-full p-[1.4rem] max-sm:px-[1rem] pr-[1.4rem]">
+            <div className="flex relative h-full flex-col gap-[.4rem] w-1/2 max-sm:w-full p-[1.4rem] max-sm:pt-[.6rem] max-sm:px-[1rem] pr-[1.4rem]">
               <h2 className="capitalize text-[1.4rem] font-semibold text-primaryColor">
                 applicants
               </h2>
-              <div className="w-full h-full overflow-y-auto scrollbar-thumb-blue-500 pr-[1rem]">
-                {applicants.map((e) => (
-                  <div
-                    onClick={() => navigate(`/profile/${e._id}`)}
-                    className="cursor-pointer mt-[.4rem] flex justify-between items-center gap-[1.2rem] h-fit w-full px-[.8rem] py-[.4rem] rounded-[.6rem] border-[1px] border-slate-400 bg-white"
-                  >
-                    <div className="flex gap-[1rem]">
-                      <img
-                        alt=""
-                        src={e?.profilePic}
-                        className="h-[2.4rem] w-[2.4rem] rounded-full bg-black"
-                      />
-                      <div>
-                        <h2 className="text-[1rem] font-semibold">{e?.name}</h2>
-                        <h2 className="text-[.7rem] font-medium">{e?.email}</h2>
+              <div className=" w-full h-full overflow-y-auto scrollbar-thumb-blue-500 pr-[1rem]">
+                {applicants.length > 0 ? (
+                  applicants.map((e) => (
+                    <div
+                      onClick={() => navigate(`/profile/${e._id}`)}
+                      className="cursor-pointer mt-[.4rem] flex justify-between items-center gap-[1.2rem] h-fit w-full px-[.8rem] py-[.4rem] rounded-[.6rem] border-[1px] border-slate-400 bg-white"
+                    >
+                      <div className="flex gap-[1rem]">
+                        <img
+                          alt=""
+                          src={e?.profilePic}
+                          className="h-[2.4rem] w-[2.4rem] rounded-full bg-black"
+                        />
+                        <div>
+                          <h2 className="text-[1rem] font-semibold">
+                            {e?.name}
+                          </h2>
+                          <h2 className="text-[.7rem] font-medium">
+                            {e?.email}
+                          </h2>
+                        </div>
+                      </div>
+                      <div className="flex justify-center items-center rounded-full h-[2rem] w-[2rem] ">
+                        <FaAngleRight className="text-[1rem] text-slate-300" />
                       </div>
                     </div>
-                    <div className="flex justify-center items-center rounded-full h-[2rem] w-[2rem] ">
-                      <FaAngleRight className="text-[1rem] text-slate-300" />
-                    </div>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  <h2 className="flex items-center justify-center w-full h-full text-[1.4rem] -mt-[.3rem] text-red-400">
+                    {" "}
+                    Not have any applicants{" "}
+                  </h2>
+                )}
               </div>
             </div>
           </div>

@@ -27,11 +27,11 @@ function Navebar() {
           <ul
             className={` max-sm:absolute max-sm:justify-center max-sm:items-center  max-sm:top-0  ${
               menuopen ? "max-sm:left-0" : "max-sm:left-full"
-            } max-sm:duration-200 max-sm:bg-blue-200 max-sm:h-screen max-sm:w-full flex justify-between text-lg  text-black font-semibold capitalize`}
+            } max-sm:duration-200 max-sm:bg-white max-sm:h-screen max-sm:w-full flex justify-between text-lg  text-black font-semibold capitalize`}
           >
             <FaTimes
               onClick={() => setMenuopen(!menuopen)}
-              className="absolute top-6 hidden max-sm:block right-6 text-[2rem] text-black"
+              className="absolute top-[.8rem] hidden max-sm:block right-[1.9rem] text-[2.2rem] text-primaryColor"
             />
             <div className="flex max-sm:flex-col max-sm:gap-[1rem] max-sm:text-center text-black font-bold ">
               <li onClick={() => setMenuopen(false)} className="px-3">
@@ -90,8 +90,6 @@ function Navebar() {
                   Users
                 </NavLink>
               </li>
-              {/* <div className='flex justify-center items-center py-[.2rem] px-[.8rem] rounded-[.3rem] bg-yellow-400 '>login</div>
-          <div className='flex justify-center items-center py-[.2rem] px-[.8rem] rounded-[.3rem] bg-yellow-400 '>register</div> */}
             </div>
           </ul>
           <div className="flex items-center gap-[1rem] font-semibold text-white">
@@ -112,7 +110,6 @@ function Navebar() {
                 </div>
               </NavLink>
             )}
-            {/* <FaBars onClick={() => setMenuopen(!menuopen)} className='text-[2rem]'/> */}
 
             <FaBars
               onClick={() => setMenuopen(!menuopen)}

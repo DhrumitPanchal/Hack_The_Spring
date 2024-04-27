@@ -1,4 +1,4 @@
-import React, { useState, useEffect,  useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Footer from "./Footer";
 import { Context } from "./Context";
 function Work() {
@@ -26,7 +26,7 @@ function Work() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative overflow-hidden flex max-sm:flex-col max-sm:gap-0 gap-[1.4rem] rounded-[.8rem] h-[24rem] max-sm:h-[40rem] w-fit max-sm:w-[75%]  bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
+            className="relative overflow-hidden flex max-sm:flex-col max-sm:gap-0 gap-[1.4rem] rounded-[.8rem] h-[24rem] max-sm:mt-[3rem] max-sm:min-h-[40rem] max-sm:max-h-fit   w-fit max-sm:w-[85%]  bg-white border-[1px] border-slate-300 shadow-[0_0_10px_rgba(0,0,0,0.4)]"
           >
             <div className="h-full w-[24rem] max-sm:w-full max-sm:h-[20rem] p-[1rem] max-sm:pb-0 ">
               <img
@@ -37,7 +37,7 @@ function Work() {
               />
             </div>
             <div className="flex flex-col gap-[.4rem] w-[20rem] max-sm:w-full py-[1.4rem] max-sm:px-[1rem] pr-[.8rem]">
-              <h2 className="capitalize mx-auto text-[1.6rem] font-bold text-primaryColor">
+              <h2 className="capitalize  text-[1.6rem] font-bold text-primaryColor">
                 {openWorkData?.title}
               </h2>
               <h2 className="mt-[.4rem] capitalize font-semibold">
@@ -79,20 +79,31 @@ function Work() {
                   {openWorkData.description}
                 </h2>
               </div>
-              {openWorkData.applicant.some(
-                (item) => item?.applicantId === user.userId
-              ) ? (
-                <button className="absolute rounded-[.5rem] bottom-[1rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor/20">
-                  Applied
-                </button>
-              ) : (
+              <div className="absolute rounded-[.5rem] bottom-[1rem] flex gap-[1rem] w-full ">
                 <button
-                  onClick={() => applyForWork()}
-                  className="absolute rounded-[.5rem] bottom-[1rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor"
+                  onClick={() => {
+                    setOpenWork(false);
+                    setOpenWorkData({});
+                  }}
+                  className="rounded-[.5rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor/70"
                 >
-                  Apply
+                  Close
                 </button>
-              )}
+                {openWorkData.applicant.some(
+                  (item) => item?.applicantId === user.userId
+                ) ? (
+                  <button className=" rounded-[.5rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor/20">
+                    Applied
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => applyForWork()}
+                    className=" rounded-[.5rem] px-[2rem] py-[.3rem] font-semibold  text-white w-fit bg-primaryColor"
+                  >
+                    Apply
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
