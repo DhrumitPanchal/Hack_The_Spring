@@ -37,9 +37,8 @@ function ProfilePage() {
               <div className="relative z-20 mx-auto h-[17rem]  w-full flex justify-center items-center">
                 <img
                   src={user?.profilePic}
-                  className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor  rounded-full "
+                  className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor bg-white  rounded-full "
                   alt=""
-                  srcset=""
                 />
                 <div className="z-0 top-0 left-0 absolute h-[10rem] w-full  bg-ButtonColor"></div>
               </div>

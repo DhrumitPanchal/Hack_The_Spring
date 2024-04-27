@@ -87,7 +87,7 @@ function Navebar() {
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/workers"}
                 >
-                  Workers
+                  Users
                 </NavLink>
               </li>
               {/* <div className='flex justify-center items-center py-[.2rem] px-[.8rem] rounded-[.3rem] bg-yellow-400 '>login</div>
@@ -100,7 +100,8 @@ function Navebar() {
                 <div>
                   <img
                     src={user?.profilePic}
-                    className="w-[2.2rem] h-[2.2rem]  rounded-full bg-black"
+                    className="w-[2.2rem] h-[2.2rem]  rounded-full bg-black border-[.5px] border-black/50"
+                    alt=""
                   />
                 </div>
               </NavLink>
