@@ -43,14 +43,6 @@ function ProfilePage() {
                 />
                 <div className="z-0 top-0 left-0 absolute h-[10rem] w-full  bg-ButtonColor"></div>
               </div>
-
-              <div className="overflow-hidden image">
-                <img
-                  className="w-full h-auto mx-auto"
-                  src={user?.profilePic}
-                  alt=""
-                />
-              </div>
             </div>
             <h2 className="text-center text-[1.1rem] font-medium">
               7658b876823768
