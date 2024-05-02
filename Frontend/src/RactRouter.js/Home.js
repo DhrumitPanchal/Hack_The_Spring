@@ -14,7 +14,7 @@ function Home() {
             "relative overflow-hidden bg-slate-100 h-screen max-sm:h-fit max-sm:p-[2rem] max-sm:pt-[8rem] max-sm:gap-[9rem] w-full pt-[4rem] px-[4rem] flex max-sm:flex-col items-center justify-between text-white"
           }
         >
-          <div className=" absolute z-[2] -left-[10rem] max-sm:-left-[110px] -top-[6rem] max-sm:-top-[290px] -rotate-[25deg] h-screen w-[60rem] max-sm:h-[600px] max-sm:w-[500px] bg-ButtonColor"></div>
+          <div className=" absolute z-[2] -left-[20rem] max-sm:-left-[110px] -top-[6rem] max-sm:-top-[290px] -rotate-[25deg] h-screen w-[70rem] max-sm:h-[600px] max-sm:w-[500px] bg-ButtonColor"></div>
 
           <div className="relative z-20 -top-[1.2rem] ">
             <h3 className="mb-[.4rem] text-[2.2rem] font-bold">

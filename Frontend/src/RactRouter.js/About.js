@@ -4,7 +4,7 @@ import Footer from "./Footer";
 function About() {
   return (
     <section className="w-full text-black">
-      <div className="h-screen max-sm:h-fit w-full flex justify-between max-sm:justify-center max-sm:flex-col gap-[5rem] px-[1rem]">
+      <div className="h-fit max-sm:h-fit w-full flex justify-between max-sm:justify-center max-sm:flex-col gap-[5rem] px-[1rem]">
         <div className="w-[45%] pt-[14rem] ml-[6rem] max-sm:w-full max-sm:ml-0 max-sm:pt-[8rem] max-sm:px-[2rem]">
           <h2 className=" text-[2.6rem] text-primaryColor font-bold  capitalize">
             about us

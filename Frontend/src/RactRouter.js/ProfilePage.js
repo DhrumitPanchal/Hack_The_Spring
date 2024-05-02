@@ -25,27 +25,24 @@ function ProfilePage() {
     Cookies.remove("accessToken");
     navigate("/login");
   };
-  console.log("profile url : " + user?.profilePic);
   return (
     <div className="relative  h-screen w-full pt-[5rem]">
       <div className=" px-[1.2rem] p-5">
         <div className="md:flex gap-[2rem] no-wrap  ">
           {/* <div className="absolute top-[5rem] right-[1rem] bg-red-400 h-[2rem] w-[3rem] t">Edit</div> */}
 
-          <div className=" w-full md:w-[19rem] md:mx-2 border-[2px] overflow-hidden border-ButtonColor rounded-[8px] ">
-            <div className="">
-              <div className="relative z-20 mx-auto h-[17rem]  w-full flex justify-center items-center">
-                <img
-                  src={user?.profilePic}
-                  className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor bg-white  rounded-full "
-                  alt=""
-                />
-                <div className="z-0 top-0 left-0 absolute h-[10rem] w-full  bg-ButtonColor"></div>
-              </div>
+          <div className="  h-[33.6rem] w-full md:w-[19rem] md:mx-2 border-[2px] overflow-hidden border-ButtonColor rounded-[8px] ">
+            <div className="pt-[1rem] relative z-20 mx-auto h-[17rem]  w-full flex justify-center items-center">
+              <img
+                src={user?.profilePic}
+                className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor bg-white  rounded-full "
+                alt=""
+              />
+              <div className="z-0 top-0 left-0 absolute h-[10rem] w-full  bg-ButtonColor"></div>
             </div>
-            <h2 className="text-center text-[1.1rem] font-medium">
+            {/* <h2 className="text-center text-[1.1rem] font-medium">
               7658b876823768
-            </h2>
+            </h2> */}
             <div className="m-[1rem] p-[1rem] rounded-[.4rem] bg-ButtonColor/30">
               <input
                 required
@@ -61,7 +58,7 @@ function ProfilePage() {
                 Owner at Her Company Inc.
               </h3>
               <p className="text-sm leading-6 text-gray-500 hover:text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam.
               </p>
               <ul className="px-3 py-[.2rem] mt-3 text-gray-600 bg-gray-100 divide-y rounded shadow-sm hover:text-gray-700 hover:shadow">
                 <li className="flex items-center py-3">

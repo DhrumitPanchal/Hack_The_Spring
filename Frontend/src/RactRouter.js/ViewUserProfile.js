@@ -19,39 +19,27 @@ function ProfilePage() {
 
   return (
     <div className="relative  h-screen w-full pt-[5rem]">
-      <div className=" px-[1.2rem] p-5">
+      <div className=" px-[1.2rem] py-6">
         <div className="md:flex gap-[2rem] no-wrap  ">
-          <div className=" w-full md:w-[19rem] md:mx-2 border-[2px] overflow-hidden border-ButtonColor rounded-[8px] ">
-            <div className="">
-              <div className="relative z-20 mx-auto h-[17rem]  w-full flex justify-center items-center">
-                <img
-                  src="./persone.png"
-                  className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor  rounded-full "
-                  alt=""
-                  srcset=""
-                />
-                <div className="z-0 top-0 left-0 absolute h-[10rem] w-full  bg-ButtonColor"></div>
-              </div>
-
-              <div className="overflow-hidden image">
-                <img
-                  className="w-full h-auto mx-auto"
-                  src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                  alt=""
-                />
-              </div>
+          <div className="h-[33.6rem] w-full md:w-[19rem] md:mx-2 border-[2px] overflow-hidden border-ButtonColor rounded-[8px] ">
+            <div className="pt-[1rem] relative z-20 mx-auto h-[17rem]  w-full flex justify-center items-center">
+              <img
+                src={userData?.profilePic}
+                className=" z-10 absolute h-[14rem] w-[14rem] border-[4px] overflow-hidden border-ButtonColor  rounded-full "
+                alt=""
+              />
+              <div className="z-0 top-0 left-0 absolute h-[10rem] w-full  bg-ButtonColor"></div>
             </div>
-            <h2 className="text-center text-[1.1rem] font-medium">
-              {userData?._id}
-            </h2>
-            <div className="m-[1rem] p-[1rem] rounded-[.4rem] bg-ButtonColor/30">
+
+            <div className="m-[1rem] py-[2rem] px-[1rem] rounded-[.4rem] bg-ButtonColor/30">
               <h3 className="leading-6 text-gray-600 font-lg text-semibold">
                 Owner at Her Company Inc.
               </h3>
               <p className="text-sm leading-6 text-gray-500 hover:text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+                veniam.
               </p>
-              <ul className="px-3 py-[.2rem] mt-3 text-gray-600 bg-gray-100 divide-y rounded shadow-sm hover:text-gray-700 hover:shadow">
+              <ul className="px-3  py-[.4rem] mt-3 text-gray-600 bg-gray-100 divide-y rounded shadow-sm hover:text-gray-700 hover:shadow">
                 <li className="flex items-center py-3">
                   <span>Status</span>
                   <span className="ml-auto">
