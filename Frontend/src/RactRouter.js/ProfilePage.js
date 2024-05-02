@@ -58,7 +58,8 @@ function ProfilePage() {
                 Owner at Her Company Inc.
               </h3>
               <p className="text-sm leading-6 text-gray-500 hover:text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+                veniam.
               </p>
               <ul className="px-3 py-[.2rem] mt-3 text-gray-600 bg-gray-100 divide-y rounded shadow-sm hover:text-gray-700 hover:shadow">
                 <li className="flex items-center py-3">
@@ -79,7 +80,7 @@ function ProfilePage() {
             </div>
           </div>
 
-          <div className="w-full h-64 mx-2 md:w-10/12 max-sm:h-fit">
+          <div className="w-full h-64 md:w-10/12 max-sm:h-fit">
             <div className="relative max-sm:mt-[2rem] w-full bg-white pb-[1.2rem] border-[2px] overflow-hidden border-ButtonColor  rounded-[8px]  ">
               <div className="px-[2.6rem] py-[1.4rem] flex items-center justify-between space-x-2 font-semibold leading-8 text-gray-900  bg-ButtonColor">
                 <div className="flex gap-[1rem]">

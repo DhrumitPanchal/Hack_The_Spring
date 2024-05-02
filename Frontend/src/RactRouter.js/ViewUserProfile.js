@@ -58,7 +58,7 @@ function ProfilePage() {
             </div>
           </div>
 
-          <div className="w-full h-64 mx-2 md:w-10/12 max-sm:h-fit">
+          <div className="w-full h-64 md:w-10/12 max-sm:h-fit">
             <div className="relative max-sm:mt-[2rem] w-full bg-white pb-[1.2rem] border-[2px] overflow-hidden border-ButtonColor  rounded-[8px]  ">
               <div className="px-[2.6rem] py-[1.4rem] flex items-center justify-between space-x-2 font-semibold leading-8 text-gray-900  bg-ButtonColor">
                 <div className="flex gap-[1rem]">
