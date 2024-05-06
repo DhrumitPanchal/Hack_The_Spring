@@ -55,7 +55,7 @@ function Navebar() {
                   className="max-sm:text-[2rem] hover:text-primaryColor/50 transition-colors duration-300"
                   to={"/contact"}
                 >
-                  contect
+                  contact
                 </NavLink>
               </li>
               <li onClick={() => setMenuopen(false)} className="px-3">

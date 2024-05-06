@@ -31,7 +31,7 @@ function Workers() {
     <section className="pt-[6rem] h-max w-full bg-slate-100">
       <div className="mx-[2rem]">
         <div className=" flex justify-between w-full max-sm:flex-col max-sm:items-center max-sm:gap-[1.4rem]">
-          <div className="flex h-[2.6rem] w-[25rem] rounded-[1.4rem] overflow-hidden bg-red-500">
+          <div className="flex h-[2.6rem] w-[25rem] rounded-[1.4rem] overflow-hidden">
             <input
               onChange={(e) => handelSearch(e)}
               value={search}
